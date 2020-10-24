@@ -1,0 +1,47 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi generate tmp",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage",
+    "changelog": "conventional-changelog -p angular -i ./CHANGELOG.md -s -r 0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+  },
+  "lint-staged": {
+    "*.{js,jsx,md,json}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.less": [
+      "prettier --write",
+      "stylelint --fix"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "@umijs/preset-react": "1.x",
+    "@umijs/test": "^3.2.24",
+    "await-to-js": "^2.1.1",
+    "lodash": "^4.17.20",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "umi": "^3.2.24"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@umijs/fabric": "^2.3.1",
+    "conventional-changelog-cli": "^2.1.0",
+    "lint-staged": "^10.4.2",
+    "prettier": "^2.1.2",
+    "yorkie": "^2.0.0"
+  }
+}

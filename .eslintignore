@@ -1,0 +1,9 @@
+dist/**/*
+node_modules
+src/pages/.umi
+!.prettierrc.js
+!.stylelintrc.js
+!commitlint.config.js
+package.json
+tsconfig.json
+README.md
