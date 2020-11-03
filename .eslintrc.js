@@ -2,7 +2,7 @@ module.exports = {
   extends: [require.resolve('@umijs/fabric/dist/eslint')],
 
   // in antd-design-pro
-  globals: {},
+  globals: { qrcodeUrlPrefix: true },
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: './tsconfig.json',

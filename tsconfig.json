@@ -15,5 +15,5 @@
     },
     "allowSyntheticDefaultImports": true
   },
-  "include": ["mock/**/*", "src/**/*", "config/**/*", ".umirc.ts", "typings.d.ts"]
+  "include": ["mock/**/*", "src/**/*", "config/**/*", "typings.d.ts"]
 }

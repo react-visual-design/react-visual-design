@@ -1,0 +1,1219 @@
+/*! Devices.css v0.1.16 | MIT License | github.com/picturepan2/devices.css */
+
+.device {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  transform: scale(1);
+  .device-frame {
+    z-index: 1;
+  }
+  .device-content {
+    overflow: auto;
+    background-color: #fff;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+.device-iphone-x {
+  width: 428px;
+  height: 868px;
+  .device-frame {
+    width: 428px;
+    height: 868px;
+    padding: 28px;
+    background: #222;
+    border-radius: 68px;
+    box-shadow: inset 0 0 2px 2px #c8cacb, inset 0 0 0 7px #e2e3e4;
+  }
+  .device-content {
+    width: 375px;
+    height: 812px;
+    padding-top: 44px;
+    border-radius: 40px;
+  }
+  .device-stripe {
+    &::after {
+      top: 85px;
+    }
+    &::before {
+      bottom: 85px;
+    }
+  }
+  .device-header {
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    width: 204px;
+    height: 30px;
+    margin-left: -102px;
+    background: #222;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    &::after {
+      left: -10px;
+      background: radial-gradient(
+        circle at bottom left,
+        transparent 0,
+        transparent 75%,
+        #222 75%,
+        #222 100%
+      );
+    }
+    &::before {
+      right: -10px;
+      background: radial-gradient(
+        circle at bottom right,
+        transparent 0,
+        transparent 75%,
+        #222 75%,
+        #222 100%
+      );
+    }
+  }
+  .device-sensors {
+    &::after {
+      top: 32px;
+      left: 50%;
+      width: 50px;
+      height: 6px;
+      margin-left: -25px;
+      background: #444;
+      border-radius: 3px;
+    }
+    &::before {
+      top: 28px;
+      left: 50%;
+      width: 14px;
+      height: 14px;
+      margin-left: 40px;
+      background: #444;
+      border-radius: 50%;
+    }
+  }
+  .device-btns {
+    position: absolute;
+    top: 115px;
+    left: -3px;
+    width: 3px;
+    height: 32px;
+    background: #c8cacb;
+    &::after {
+      top: 60px;
+    }
+    &::before {
+      top: 140px;
+    }
+  }
+  .device-power {
+    position: absolute;
+    top: 200px;
+    right: -3px;
+    width: 3px;
+    height: 100px;
+    background: #c8cacb;
+  }
+}
+.device-iphone-x .device-stripe::after,
+.device-iphone-x .device-stripe::before {
+  position: absolute;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  height: 7px;
+  border: solid rgba(51, 51, 51, 0.25);
+  border-width: 0 7px;
+  content: '';
+}
+.device-iphone-x .device-header::after,
+.device-iphone-x .device-header::before {
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  content: '';
+}
+.device-iphone-x .device-sensors::after,
+.device-iphone-x .device-sensors::before {
+  position: absolute;
+  content: '';
+}
+.device-iphone-x .device-btns::after,
+.device-iphone-x .device-btns::before {
+  position: absolute;
+  left: 0;
+  width: 3px;
+  height: 62px;
+  background: #c8cacb;
+  content: '';
+}
+.device-iphone-8 {
+  width: 419px;
+  height: 871px;
+  .device-frame {
+    width: 419px;
+    height: 871px;
+    padding: 102px 22px;
+    background: #fff;
+    border-radius: 68px;
+    box-shadow: inset 0 0 0 2px #c8cacb, inset 0 0 0 7px #e2e3e4;
+  }
+  .device-content {
+    width: 375px;
+    height: 667px;
+    border: 2px solid #222;
+    border-radius: 4px;
+  }
+  .device-stripe {
+    &::after {
+      top: 68px;
+    }
+    &::before {
+      bottom: 68px;
+    }
+  }
+  .device-header {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    width: 58px;
+    height: 58px;
+    margin-left: -29px;
+    border: 2px solid #c8cacb;
+    border-radius: 50%;
+  }
+  .device-sensors {
+    position: absolute;
+    top: 52px;
+    left: 50%;
+    width: 76px;
+    height: 6px;
+    margin-left: -38px;
+    background: #666;
+    border-radius: 3px;
+    &::after {
+      top: -25px;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      margin-left: -5px;
+    }
+    &::before {
+      top: 50%;
+      left: -42px;
+      width: 12px;
+      height: 12px;
+      margin-top: -6px;
+    }
+  }
+  .device-btns {
+    position: absolute;
+    top: 102px;
+    left: -3px;
+    width: 3px;
+    height: 30px;
+    background: #c8cacb;
+    &::after {
+      top: 62px;
+    }
+    &::before {
+      top: 132px;
+    }
+  }
+  .device-power {
+    position: absolute;
+    top: 160px;
+    right: -2px;
+    width: 3px;
+    height: 80px;
+    background: #c8cacb;
+  }
+  &.device-gold {
+    .device-frame {
+      box-shadow: inset 0 0 0 2px #e4b08a, inset 0 0 0 7px #f7e8dd;
+    }
+    .device-header {
+      border-color: #e4b08a;
+    }
+    .device-power {
+      background: #e4b08a;
+    }
+  }
+  &.device-spacegray {
+    .device-frame {
+      background: #222;
+      box-shadow: inset 0 0 0 2px #74747a, inset 0 0 0 7px #9b9ba0;
+    }
+  }
+}
+.device-iphone-8 .device-stripe::after,
+.device-iphone-8 .device-stripe::before {
+  position: absolute;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  height: 6px;
+  border: solid rgba(51, 51, 51, 0.15);
+  border-width: 0 7px;
+  content: '';
+}
+.device-iphone-8 .device-sensors::after,
+.device-iphone-8 .device-sensors::before {
+  position: absolute;
+  background: #666;
+  border-radius: 50%;
+  content: '';
+}
+.device-iphone-8 .device-btns::after,
+.device-iphone-8 .device-btns::before {
+  position: absolute;
+  left: 0;
+  width: 3px;
+  height: 56px;
+  background: #c8cacb;
+  content: '';
+}
+.device-iphone-8.device-gold .device-btns,
+.device-iphone-8.device-gold .device-btns::after,
+.device-iphone-8.device-gold .device-btns::before {
+  background: #e4b08a;
+}
+.device-iphone-8.device-spacegray .device-stripe::after,
+.device-iphone-8.device-spacegray .device-stripe::before {
+  border-color: rgba(204, 204, 204, 0.35);
+}
+.device-iphone-8.device-spacegray .device-btns,
+.device-iphone-8.device-spacegray .device-btns::after,
+.device-iphone-8.device-spacegray .device-btns::before {
+  background: #74747a;
+}
+.device-google-pixel-2-xl {
+  width: 404px;
+  height: 832px;
+  .device-frame {
+    width: 404px;
+    height: 832px;
+    padding: 56px 22px;
+    background: #121212;
+    border-radius: 36px;
+    box-shadow: inset 0 0 0 2px #cfcfcf, inset 0 0 0 7px #9c9c9c;
+  }
+  .device-content {
+    width: 360px;
+    height: 720px;
+    border-radius: 27px;
+  }
+  .device-header {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 300px;
+    height: 832px;
+    margin-left: -150px;
+    &::after {
+      top: 24px;
+    }
+    &::before {
+      bottom: 28px;
+    }
+  }
+  .device-sensors {
+    position: absolute;
+    top: 36px;
+    left: 54px;
+    width: 14px;
+    height: 14px;
+    margin-top: -7px;
+    background: #333;
+    border-radius: 7px;
+  }
+  .device-btns {
+    position: absolute;
+    top: 306px;
+    right: -3px;
+    width: 3px;
+    height: 102px;
+    background: #cfcfcf;
+  }
+  .device-power {
+    position: absolute;
+    top: 194px;
+    right: -3px;
+    width: 3px;
+    height: 58px;
+    background: #cfcfcf;
+  }
+}
+.device-google-pixel-2-xl .device-header::after,
+.device-google-pixel-2-xl .device-header::before {
+  position: absolute;
+  left: 50%;
+  width: 146px;
+  height: 6px;
+  margin-top: -3px;
+  margin-left: -73px;
+  background: #333;
+  border-radius: 3px;
+  content: '';
+}
+.device-google-pixel {
+  width: 360px;
+  height: 744px;
+  .device-frame {
+    width: 360px;
+    height: 744px;
+    padding: 82px 18px 86px 18px;
+    background: #f7f7f8;
+    border-radius: 54px;
+    box-shadow: inset 0 0 0 2px #c8cacb, inset 0 0 0 6px #e2e3e4, inset 0 0 0 10px white;
+  }
+  .device-content {
+    width: 324px;
+    height: 576px;
+    border: 2px solid #222;
+    border-radius: 2px;
+  }
+  .device-stripe {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 254px;
+    width: 8px;
+    border-top: 6px solid rgba(51, 51, 51, 0.15);
+    &::after {
+      top: 60px;
+    }
+    &::before {
+      bottom: 46px;
+    }
+  }
+  .device-sensors {
+    position: absolute;
+    top: 41px;
+    left: 50%;
+    width: 78px;
+    height: 5px;
+    margin-top: -2.5px;
+    margin-left: -39px;
+    background: #ddd;
+    border-radius: 2.5px;
+    &::after {
+      top: 21.5px;
+      left: 50%;
+      width: 28px;
+      height: 12px;
+      margin-left: -14px;
+    }
+    &::before {
+      top: 50%;
+      left: -81px;
+      width: 10px;
+      height: 10px;
+      margin-top: -5px;
+    }
+  }
+  .device-btns {
+    position: absolute;
+    top: 298px;
+    right: -2px;
+    width: 3px;
+    height: 102px;
+    background: #c8cacb;
+  }
+  .device-power {
+    position: absolute;
+    top: 184px;
+    right: -2px;
+    width: 3px;
+    height: 50px;
+    background: #c8cacb;
+  }
+  &.device-black {
+    .device-frame {
+      background: #211d1c;
+      box-shadow: inset 0 0 0 2px #363635, inset 0 0 0 6px #6a6967, inset 0 0 0 10px #3d3533;
+    }
+    .device-sensors {
+      background: #444;
+      &::after {
+        background: #0d0d0d;
+      }
+    }
+    .device-power {
+      background: #363635;
+    }
+  }
+  &.device-blue {
+    .device-frame {
+      box-shadow: inset 0 0 0 2px #2a5aff, inset 0 0 0 6px #7695ff, inset 0 0 0 10px white;
+    }
+    .device-power {
+      background: #2a5aff;
+    }
+  }
+}
+.device-google-pixel .device-stripe::after,
+.device-google-pixel .device-stripe::before {
+  position: absolute;
+  left: -254px;
+  z-index: 9;
+  width: 360px;
+  height: 10px;
+  border: solid rgba(51, 51, 51, 0.15);
+  border-width: 0 6px;
+  content: '';
+}
+.device-google-pixel .device-sensors::after,
+.device-google-pixel .device-sensors::before {
+  position: absolute;
+  background: #333;
+  border-radius: 6px;
+  content: '';
+}
+.device-google-pixel.device-black .device-stripe,
+.device-google-pixel.device-black .device-stripe::after,
+.device-google-pixel.device-black .device-stripe::before {
+  border-color: rgba(13, 13, 13, 0.35);
+}
+.device-google-pixel.device-black .device-btns,
+.device-google-pixel.device-black .device-btns::after,
+.device-google-pixel.device-black .device-btns::before {
+  background: #363635;
+}
+.device-google-pixel.device-blue .device-btns,
+.device-google-pixel.device-blue .device-btns::after,
+.device-google-pixel.device-blue .device-btns::before {
+  background: #2a5aff;
+}
+.device-galaxy-s8 {
+  width: 380px;
+  height: 828px;
+  .device-frame {
+    width: 380px;
+    height: 828px;
+    padding: 48px 10px 40px 10px;
+    background: #222;
+    border: solid #cfcfcf;
+    border-width: 5px 0;
+    border-radius: 55px;
+    box-shadow: inset 0 0 0 2px #9c9c9c;
+  }
+  .device-content {
+    width: 360px;
+    height: 740px;
+    border: 2px solid #222;
+    border-radius: 34px;
+  }
+  .device-stripe {
+    &::after {
+      left: 48px;
+    }
+    &::before {
+      right: 48px;
+    }
+  }
+  .device-sensors {
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    width: 48px;
+    height: 6px;
+    margin-top: -3px;
+    margin-left: -24px;
+    background: #666;
+    border-radius: 3px;
+    &::after {
+      right: -90px;
+      width: 8px;
+      height: 8px;
+      margin-top: -4px;
+      box-shadow: -192px 0 #333, -174px 0 #333, -240px 0 #333;
+    }
+    &::before {
+      left: -90px;
+      width: 12px;
+      height: 12px;
+      margin-top: -6px;
+      box-shadow: 186px 0 #666;
+    }
+  }
+  .device-btns {
+    position: absolute;
+    top: 144px;
+    left: -3px;
+    width: 3px;
+    height: 116px;
+    background: #9c9c9c;
+    border-radius: 3px 0 0 3px;
+    &::after {
+      position: absolute;
+      top: 164px;
+      left: 0;
+      width: 3px;
+      height: 54px;
+      background: #9c9c9c;
+      border-radius: 3px 0 0 3px;
+      content: '';
+    }
+  }
+  .device-power {
+    position: absolute;
+    top: 260px;
+    right: -3px;
+    width: 3px;
+    height: 54px;
+    background: #9c9c9c;
+    border-radius: 0 3px 3px 0;
+  }
+  &.device-blue {
+    .device-frame {
+      border-color: #a3c5e8;
+      box-shadow: inset 0 0 0 2px #5192d4;
+    }
+    .device-power {
+      background: #5192d4;
+    }
+  }
+}
+.device-galaxy-s8 .device-stripe::after,
+.device-galaxy-s8 .device-stripe::before {
+  position: absolute;
+  top: 0;
+  z-index: 9;
+  width: 6px;
+  height: 828px;
+  border: solid rgba(51, 51, 51, 0.15);
+  border-width: 5px 0;
+  content: '';
+}
+.device-galaxy-s8 .device-sensors::after,
+.device-galaxy-s8 .device-sensors::before {
+  position: absolute;
+  top: 50%;
+  background: #666;
+  border-radius: 50%;
+  content: '';
+}
+.device-galaxy-s8.device-blue .device-stripe::after,
+.device-galaxy-s8.device-blue .device-stripe::before {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.device-galaxy-s8.device-blue .device-btns,
+.device-galaxy-s8.device-blue .device-btns::after {
+  background: #5192d4;
+}
+.device-ipad-pro {
+  width: 560px;
+  height: 804px;
+  .device-frame {
+    width: 560px;
+    height: 804px;
+    padding: 62px 25px;
+    background: #fff;
+    border-radius: 38px;
+    box-shadow: inset 0 0 0 2px #c8cacb, inset 0 0 0 6px #e2e3e4;
+  }
+  .device-content {
+    width: 510px;
+    height: 680px;
+    border: 2px solid #222;
+    border-radius: 2px;
+  }
+  .device-header {
+    position: absolute;
+    bottom: 17px;
+    left: 50%;
+    width: 34px;
+    height: 34px;
+    margin-left: -17px;
+    border: 2px solid #c8cacb;
+    border-radius: 50%;
+  }
+  .device-sensors {
+    position: absolute;
+    top: 34px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    margin-top: -5px;
+    margin-left: -5px;
+    background: #666;
+    border-radius: 50%;
+  }
+  &.device-gold {
+    .device-frame {
+      box-shadow: inset 0 0 0 2px #e4b08a, inset 0 0 0 6px #f7e8dd;
+    }
+    .device-header {
+      border-color: #e4b08a;
+    }
+  }
+  &.device-rosegold {
+    .device-frame {
+      box-shadow: inset 0 0 0 2px #f6a69a, inset 0 0 0 6px #facfc9;
+    }
+    .device-header {
+      border-color: #f6a69a;
+    }
+  }
+  &.device-spacegray {
+    .device-frame {
+      background: #222;
+      box-shadow: inset 0 0 0 2px #818187, inset 0 0 0 6px #9b9ba0;
+    }
+    .device-header {
+      border-color: #818187;
+    }
+  }
+}
+.device-surface-pro {
+  width: 561px;
+  height: 394px;
+  .device-frame {
+    width: 561px;
+    height: 394px;
+    margin: 0 auto;
+    padding: 26px 24px;
+    background: #0d0d0d;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 2px #c8c8c8;
+  }
+  .device-content {
+    width: 513px;
+    height: 342px;
+    border: 2px solid #121212;
+    border-radius: 2px;
+  }
+  .device-btns {
+    &::after {
+      left: 48px;
+      width: 26px;
+    }
+    &::before {
+      left: 94px;
+      width: 48px;
+    }
+  }
+  .device-sensors {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    margin-top: -3px;
+    margin-left: -3px;
+    background: #333;
+    border-radius: 50%;
+  }
+}
+.device-surface-pro .device-btns::after,
+.device-surface-pro .device-btns::before {
+  position: absolute;
+  top: -2px;
+  height: 2px;
+  background: #c8c8c8;
+  content: '';
+}
+.device-surface-book {
+  width: 728px;
+  height: 424px;
+  .device-frame {
+    position: relative;
+    width: 584px;
+    height: 408px;
+    margin: 0 auto;
+    padding: 24px 22px;
+    background: #0d0d0d;
+    border-radius: 12px;
+    box-shadow: inset 0 0 0 2px #c8c8c8;
+  }
+  .device-content {
+    width: 540px;
+    height: 360px;
+    border: 2px solid #121212;
+    border-radius: 2px;
+  }
+  .device-btns {
+    &::after {
+      left: 122px;
+      width: 20px;
+    }
+    &::before {
+      left: 168px;
+      width: 44px;
+    }
+  }
+  .device-power {
+    position: relative;
+    width: 728px;
+    height: 12px;
+    margin-top: 4px;
+    background: linear-gradient(to bottom, #eee, #c8c8c8);
+    border: solid #c8c8c8;
+    border-width: 0 2px;
+    border-radius: 2px;
+    &::after {
+      top: 0;
+      left: 50%;
+      z-index: 1;
+      width: 250px;
+      height: 8px;
+      margin-left: -125px;
+      background: radial-gradient(circle at center, #eee 0, #eee 95%, #a2a1a1 100%);
+      border-radius: 0 0 6px 6px;
+    }
+    &::before {
+      bottom: 12px;
+      left: 50%;
+      width: 584px;
+      height: 8px;
+      margin-left: -292px;
+      background: linear-gradient(to bottom, #eee, #c8c8c8);
+      border-radius: 2px 2px 0 0;
+    }
+  }
+}
+.device-surface-book .device-btns::after,
+.device-surface-book .device-btns::before {
+  position: absolute;
+  top: -2px;
+  height: 2px;
+  background: #c8c8c8;
+  content: '';
+}
+.device-surface-book .device-power::after,
+.device-surface-book .device-power::before {
+  position: absolute;
+  content: '';
+}
+.device-macbook-pro {
+  width: 740px;
+  height: 444px;
+  .device-frame {
+    position: relative;
+    width: 614px;
+    height: 428px;
+    margin: 0 auto;
+    padding: 29px 19px 39px 19px;
+    background: #0d0d0d;
+    border-radius: 20px;
+    box-shadow: inset 0 0 0 2px #c8cacb;
+    &::after {
+      position: absolute;
+      bottom: 2px;
+      left: 2px;
+      width: 610px;
+      height: 26px;
+      background: #272626;
+      border-radius: 0 0 20px 20px;
+      content: '';
+    }
+    &::before {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      z-index: 1;
+      width: 200px;
+      height: 16px;
+      margin-left: -100px;
+      color: #c8cacb;
+      font-size: 12px;
+      line-height: 16px;
+      text-align: center;
+      content: 'MacBook Pro';
+    }
+  }
+  .device-content {
+    width: 576px;
+    height: 360px;
+    border: 2px solid #121212;
+    border-radius: 2px;
+  }
+  .device-power {
+    position: relative;
+    z-index: 9;
+    width: 740px;
+    height: 14px;
+    margin-top: -10px;
+    background: #e2e3e4;
+    border: solid #d5d6d8;
+    border-width: 2px 4px 0 4px;
+    border-radius: 2px 2px 0 0;
+    &::after {
+      top: -2px;
+      left: 50%;
+      width: 120px;
+      height: 10px;
+      margin-left: -60px;
+      background: #d5d6d8;
+      border-radius: 0 0 10px 10px;
+      box-shadow: inset 0 0 4px 2px #babdbf;
+    }
+    &::before {
+      top: 10px;
+      left: -4px;
+      width: 740px;
+      height: 12px;
+      margin: 0 auto;
+      background: #a0a3a7;
+      border-radius: 0 0 180px 180px/ 0 0 12px 12px;
+      box-shadow: inset 0 -2px 6px 0 #474a4d;
+    }
+  }
+  &.device-spacegray {
+    .device-frame {
+      box-shadow: inset 0 0 0 2px #767a7d;
+    }
+    .device-power {
+      background: #909496;
+      border-color: #767a7d;
+      &::after {
+        background: #83878a;
+        box-shadow: inset 0 0 4px 2px #6a6d70;
+      }
+      &::before {
+        background: #515456;
+        box-shadow: inset 0 -2px 6px 0 black;
+      }
+    }
+  }
+}
+.device-macbook-pro .device-power::after,
+.device-macbook-pro .device-power::before {
+  position: absolute;
+  content: '';
+}
+.device-macbook {
+  width: 740px;
+  height: 432px;
+  .device-frame {
+    position: relative;
+    width: 614px;
+    height: 428px;
+    margin: 0 auto;
+    padding: 29px 19px 39px 19px;
+    background: #0d0d0d;
+    border-radius: 20px;
+    box-shadow: inset 0 0 0 2px #c8cacb;
+    &::after {
+      position: absolute;
+      bottom: 2px;
+      left: 2px;
+      width: 610px;
+      height: 26px;
+      background: #272626;
+      border-radius: 0 0 20px 20px;
+      content: '';
+    }
+    &::before {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      z-index: 1;
+      width: 200px;
+      height: 16px;
+      margin-left: -100px;
+      color: #c8cacb;
+      font-size: 12px;
+      line-height: 16px;
+      text-align: center;
+      content: 'MacBook';
+    }
+  }
+  .device-content {
+    width: 576px;
+    height: 360px;
+    border: 2px solid #121212;
+    border-radius: 2px;
+  }
+  .device-power {
+    position: relative;
+    z-index: 9;
+    width: 740px;
+    height: 4px;
+    margin-top: -10px;
+    background: #e2e3e4;
+    border: solid #d5d6d8;
+    border-width: 0 4px;
+    border-radius: 2px 2px 0 0;
+    &::after {
+      left: 50%;
+      width: 120px;
+      height: 4px;
+      margin-left: -60px;
+      background: radial-gradient(circle at center, #e2e3e4 0, #e2e3e4 85%, #a0a3a7 100%);
+      border: solid #adb0b3;
+      border-width: 0 2px;
+    }
+    &::before {
+      top: 4px;
+      left: -4px;
+      width: 740px;
+      height: 10px;
+      margin: 0 auto;
+      background: #a0a3a7;
+      border-radius: 0 0 180px 180px/ 0 0 10px 10px;
+      box-shadow: inset 0 -2px 6px 0 #474a4d;
+    }
+  }
+  &.device-gold {
+    .device-frame {
+      box-shadow: inset 0 0 0 2px #edccb4;
+    }
+    .device-power {
+      background: #f7e8dd;
+      border-color: #edccb4;
+      &::after {
+        background: radial-gradient(circle at center, #f7e8dd 0, #f7e8dd 85%, #dfa276 100%);
+        border-color: #e4b08a;
+      }
+      &::before {
+        background: #edccb4;
+        box-shadow: inset 0 -2px 6px 0 #83491f;
+      }
+    }
+  }
+  &.device-rosegold {
+    .device-frame {
+      box-shadow: inset 0 0 0 2px #f6a69a;
+    }
+    .device-power {
+      background: #facfc9;
+      border-color: #f6a69a;
+      &::after {
+        background: radial-gradient(circle at center, #facfc9 0, #facfc9 85%, #ef6754 100%);
+        border-color: #f6a69a;
+      }
+      &::before {
+        background: #f6a69a;
+        box-shadow: inset 0 -2px 6px 0 #851b0c;
+      }
+    }
+  }
+  &.device-spacegray {
+    .device-frame {
+      box-shadow: inset 0 0 0 2px #767a7d;
+    }
+    .device-power {
+      background: #909496;
+      border-color: #767a7d;
+      &::after {
+        background: radial-gradient(circle at center, #909496 0, #909496 85%, #515456 100%);
+        border-color: #5d6163;
+      }
+      &::before {
+        background: #515456;
+        box-shadow: inset 0 -2px 6px 0 black;
+      }
+    }
+  }
+}
+.device-macbook .device-power::after,
+.device-macbook .device-power::before {
+  position: absolute;
+  content: '';
+}
+.device-surface-studio {
+  width: 640px;
+  height: 506px;
+  .device-frame {
+    width: 640px;
+    height: 440px;
+    padding: 20px;
+    background: #0d0d0d;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 2px black;
+  }
+  .device-content {
+    width: 600px;
+    height: 400px;
+    border: 2px solid #121212;
+    border-radius: 2px;
+  }
+  .device-stripe {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 234px;
+    height: 4px;
+    margin-left: -117px;
+    background: #444;
+    border-radius: 0 0 2px 2px;
+    &::after {
+      z-index: -1;
+      width: 280px;
+      height: 60px;
+      margin-left: -140px;
+      border: 6px solid #d5d6d8;
+      border-top: 0;
+      border-radius: 0 0 18px 18px;
+      box-shadow: inset 0 0 0 4px #c8cacb;
+    }
+    &::before {
+      z-index: -2;
+      width: 300px;
+      height: 70px;
+      margin-left: -150px;
+      border: 15px solid #e2e3e4;
+      border-top: 0;
+      border-radius: 0 0 4px 4px;
+    }
+  }
+  .device-power {
+    position: relative;
+    width: 250px;
+    height: 32px;
+    margin: 30px auto 0 auto;
+    background: #eff0f0;
+    border: solid #e2e3e4;
+    border-width: 0 4px 2px 4px;
+    border-radius: 0 0 2px 2px;
+    &::after {
+      position: absolute;
+      top: 4px;
+      left: -4px;
+      width: 250px;
+      height: 2px;
+      background: #adb0b3;
+      content: '';
+    }
+  }
+}
+.device-surface-studio .device-stripe::after,
+.device-surface-studio .device-stripe::before {
+  position: absolute;
+  top: -75px;
+  left: 50%;
+  content: '';
+}
+.device-imac-pro {
+  width: 624px;
+  height: 484px;
+  .device-frame {
+    position: relative;
+    width: 624px;
+    height: 428px;
+    padding: 24px 24px 80px 24px;
+    background: #0d0d0d;
+    border-radius: 18px;
+    box-shadow: inset 0 0 0 2px #080808;
+    &::after {
+      position: absolute;
+      bottom: 2px;
+      left: 2px;
+      width: 620px;
+      height: 54px;
+      background: #2f2e33;
+      border-radius: 0 0 18px 18px;
+      content: '';
+    }
+    &::before {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      z-index: 9;
+      width: 200px;
+      height: 24px;
+      margin-left: -100px;
+      color: #0d0d0d;
+      font-size: 24px;
+      line-height: 24px;
+      text-align: center;
+      content: '';
+    }
+  }
+  .device-content {
+    width: 576px;
+    height: 324px;
+    border: 2px solid #121212;
+    border-radius: 2px;
+  }
+  .device-power {
+    &::after {
+      position: relative;
+      width: 180px;
+      height: 6px;
+      margin: 0 auto;
+      background: #222225;
+      border-radius: 2px;
+    }
+    &::before {
+      position: relative;
+      width: 130px;
+      height: 50px;
+      margin: 0 auto;
+      border: solid transparent;
+      border-width: 0 8px 50px 8px;
+      border-bottom-color: #333;
+    }
+  }
+}
+.device-imac-pro .device-power::after,
+.device-imac-pro .device-power::before {
+  content: '';
+}
+.device-apple-watch {
+  width: 200px;
+  height: 234px;
+  .device-frame {
+    position: relative;
+    width: 200px;
+    height: 234px;
+    padding: 32px;
+    background: #0d0d0d;
+    border-radius: 40px;
+    box-shadow: inset 0 0 2px 2px #adb0b3, inset 0 0 0 6px #e2e3e4, inset 0 0 0 8px #e2e3e4;
+    &::after {
+      position: absolute;
+      top: 9px;
+      left: 9px;
+      width: 182px;
+      height: 216px;
+      border-radius: 30px;
+      box-shadow: inset 0 0 25px 0 rgba(255, 255, 255, 0.75);
+      content: '';
+    }
+  }
+  .device-content {
+    width: 136px;
+    height: 170px;
+    border: 2px solid #121212;
+    border-radius: 2px;
+  }
+  .device-btns {
+    position: absolute;
+    top: 52px;
+    right: -10px;
+    z-index: 9;
+    width: 16px;
+    height: 44px;
+    background: #e2e3e4;
+    border-left: 2px solid #adb0b3;
+    border-radius: 8px 4px 4px 8px / 20px 4px 4px 20px;
+    box-shadow: inset 0 0 2px 2px #adb0b3;
+    &::after {
+      position: absolute;
+      top: 68px;
+      right: 6px;
+      width: 8px;
+      height: 66px;
+      background: #e2e3e4;
+      border-radius: 4px 2px 2px 4px / 10px 2px 2px 10px;
+      box-shadow: inset 0 0 1px 2px #adb0b3;
+      content: '';
+    }
+    &::before {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 6px;
+      height: 2px;
+      margin-top: -1px;
+      background: #adb0b3;
+      box-shadow: 0 -16px #adb0b3, 0 -12px #adb0b3, 0 -8px #adb0b3, 0 -4px #adb0b3, 0 4px #adb0b3,
+        0 8px #adb0b3, 0 12px #adb0b3, 0 16px #adb0b3;
+      content: '';
+    }
+  }
+}

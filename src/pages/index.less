@@ -1,3 +1,153 @@
-.title {
-  background: rgb(121, 242, 157);
+.page {
+  width: 100%;
+  overflow: hidden;
+  background: #f0f0f0;
+
+  .head {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    margin-bottom: 2px;
+    padding: 0 12px;
+    background: #fff;
+    box-shadow: 0 1px 4px 0 hsla(0, 0%, 76%, 0.6);
+
+    > div {
+      flex: 1;
+    }
+    .title {
+      font-weight: bolder;
+      font-size: 18px;
+    }
+
+    .operate-region button {
+      margin-right: 12px;
+    }
+    .github-link {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMTIgMTIgNDAgNDAiPjxwYXRoIGZpbGw9IiMzMzMiIGQ9Ik0zMiAxMy40Yy0xMC41IDAtMTkgOC41LTE5IDE5IDAgOC40IDUuNSAxNS41IDEzIDE4IDEgLjIgMS4zLS40IDEuMy0uOXYtMy4yYy01LjMgMS4xLTYuNC0yLjYtNi40LTIuNi0uOS0yLjEtMi4xLTIuNy0yLjEtMi43LTEuNy0xLjIuMS0xLjEuMS0xLjEgMS45LjEgMi45IDIgMi45IDIgMS43IDIuOSA0LjUgMi4xIDUuNSAxLjYuMi0xLjIuNy0yLjEgMS4yLTIuNi00LjItLjUtOC43LTIuMS04LjctOS40IDAtMi4xLjctMy43IDItNS4xLS4yLS41LS44LTIuNC4yLTUgMCAwIDEuNi0uNSA1LjIgMiAxLjUtLjQgMy4xLS43IDQuOC0uNyAxLjYgMCAzLjMuMiA0LjcuNyAzLjYtMi40IDUuMi0yIDUuMi0yIDEgMi42LjQgNC42LjIgNSAxLjIgMS4zIDIgMyAyIDUuMSAwIDcuMy00LjUgOC45LTguNyA5LjQuNy42IDEuMyAxLjcgMS4zIDMuNXY1LjJjMCAuNS40IDEuMSAxLjMuOSA3LjUtMi42IDEzLTkuNyAxMy0xOC4xIDAtMTAuNS04LjUtMTktMTktMTl6Ii8+PC9zdmc+');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+
+  .content {
+    display: flex;
+    .left {
+      flex: 3;
+      height: 100%;
+      padding: 10px 20px;
+      background: #fff;
+
+      .title {
+        margin: 15px 0;
+        font-size: 16px;
+        text-align: center;
+      }
+
+      .comp {
+        &-title {
+          text-align: left;
+        }
+        &-item {
+          display: flex;
+          flex-direction: column;
+          width: 80px;
+          padding: 6px;
+          color: #424242;
+          font-size: 12px;
+          text-align: center;
+          background: #f4f4f4;
+          border: 1px solid #ddd;
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            color: #1890ff;
+            background: #fff;
+            border: 1px solid #1890ff;
+          }
+
+          > span {
+            margin-top: 4px;
+          }
+        }
+      }
+    }
+    .center {
+      position: relative;
+      flex: 10;
+      padding: 65px 0 0;
+      .emptyTip {
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+      }
+      .deviceSelect {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+      .comp-wrap {
+        position: relative;
+        &-active {
+          border: 1px solid #1890ff;
+        }
+
+        &:hover {
+          border: 1px dashed #1890ff;
+          .operate-wrap {
+            display: block;
+          }
+        }
+
+        .operate-wrap {
+          position: absolute;
+          top: 0;
+          right: 0;
+          z-index: 99;
+          display: none;
+          .operate-item {
+            margin-bottom: 1px;
+            background: #333;
+            cursor: pointer;
+          }
+        }
+      }
+      .null-comp {
+        padding: 12px 0;
+        text-align: center;
+        background: lightgray;
+      }
+    }
+    .right {
+      flex: 7;
+      max-height: 700px;
+      padding: 10px;
+      overflow: auto;
+      background: #fff;
+      // transform: translateX(100%);
+      // opacity: 0;
+      // transition: all 0.3s;
+
+      &-show {
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      .title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 15px 0;
+        font-size: 16px;
+        > span {
+          font-weight: bolder;
+          font-size: 18px;
+        }
+      }
+    }
+  }
 }

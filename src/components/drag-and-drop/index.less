@@ -1,0 +1,25 @@
+.dragWrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  > div {
+    margin-bottom: 10px;
+  }
+}
+.dropPlaceHolder {
+  display: none;
+  &-show {
+    display: block;
+    height: 55px;
+    color: #f0f0f0;
+    line-height: 55px;
+    text-align: center;
+    background: #f0f0f0;
+    border: 1px solid #eef0fc;
+  }
+  &-active {
+    color: #1890ff;
+    background-color: #eef9f7;
+    border: 1px dashed #1890ff;
+  }
+}
