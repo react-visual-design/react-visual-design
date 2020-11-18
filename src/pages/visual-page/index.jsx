@@ -2,16 +2,22 @@ import React, { useRef } from 'react'
 import { Button, Modal, notification } from 'antd'
 import { Link } from 'umi'
 
-import { PagePaging, gePageById, deletePage, addPage, updatePage } from '@/service'
+import {
+  visualPagePaging,
+  geVisualPageById,
+  addVisualPage,
+  updateVisualPage,
+  deleteVisualPage,
+} from '@/service'
 import { FormTable, FormModal } from '@/components'
 
 import { createFormActions } from '@formily/antd'
-import styles from './page.less'
+import styles from './index.less'
 
 let formModalRef
 const formTableActions = createFormActions()
 const service = ({ values, pagination }) => {
-  return PagePaging({
+  return visualPagePaging({
     limit: pagination.pageSize,
     offset: pagination.pageSize * (pagination.current - 1),
     name: values.name,
@@ -58,7 +64,7 @@ const columns = [
           type="link"
           size="small"
           onClick={async () => {
-            const values = await gePageById(id)
+            const values = await geVisualPageById(id)
             formModalRef.current.showModal({ values, title: '编辑页面' })
           }}
         >
@@ -66,7 +72,7 @@ const columns = [
         </Button>
         <Link
           to={{
-            pathname: '/',
+            pathname: '/visual-page/edit',
             search: `?pageId=${id}`,
           }}
         >
@@ -74,7 +80,7 @@ const columns = [
         </Link>
         <Link
           to={{
-            pathname: '/preview',
+            pathname: '/visual-page/preview',
             search: `?pageId=${id}`,
           }}
         >
@@ -88,7 +94,7 @@ const columns = [
             Modal.confirm({
               content: '你确定删除该页面?',
               onOk: async () => {
-                await deletePage(id)
+                await deleteVisualPage(id)
                 formTableActions.reset()
               },
             })
@@ -152,9 +158,9 @@ const handleCreatePage = () => {
 const handleModalFormSubmit = async value => {
   const { id, name, description } = value
   if (id) {
-    await updatePage({ id, name, description })
+    await updateVisualPage({ id, name, description })
   } else {
-    await addPage({ name, description })
+    await addVisualPage({ name, description })
   }
   notification.success({
     message: `${id ? '编辑' : '新建'}成功`,

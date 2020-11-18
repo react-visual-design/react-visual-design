@@ -2,11 +2,18 @@ import request from '../util/request'
 
 const { post, get, put, delete: Delete } = request
 
-const PagePaging = params => get('/api/page', { params })
-const gePageById = id => get(`/api/page/${id}`)
-const addPage = data => post(`/api/page`, { data })
-const updatePage = data => put(`/api/page/${data.id}`, { data })
-const updatePageData = data => put(`/api/update-page-data/${data.id}`, { data })
-const deletePage = id => Delete(`/api/page/${id}`)
+const visualPagePaging = params => get('/api/visual-page', { params })
+const geVisualPageById = id => get(`/api/visual-page/${id}`)
+const addVisualPage = data => post(`/api/visual-page`, { data })
+const updateVisualPage = data => put(`/api/visual-page/${data.id}`, { data })
+const updateVisualPageData = data => put(`/api/update-visual-page/${data.id}`, { data })
+const deleteVisualPage = id => Delete(`/api/visual-page/${id}`)
 
-export { PagePaging, gePageById, addPage, updatePage, updatePageData, deletePage }
+export {
+  visualPagePaging,
+  geVisualPageById,
+  addVisualPage,
+  updateVisualPage,
+  updateVisualPageData,
+  deleteVisualPage,
+}

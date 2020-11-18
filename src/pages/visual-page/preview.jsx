@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 
 import * as VisualDesignComponents from 'react-visual-design-components'
 import { map, get } from 'lodash'
-import { gePageById } from '@/service'
+import { geVisualPageById } from '@/service'
 import styles from './preview.less'
 
 export default class Index extends PureComponent {
@@ -13,7 +13,7 @@ export default class Index extends PureComponent {
   async componentDidMount() {
     this.pageId = get(this, 'props.location.query.pageId')
     if (this.pageId) {
-      const res = await gePageById(this.pageId)
+      const res = await geVisualPageById(this.pageId)
       document.title = res.name
       this.setState({ data: res.data || [] })
     }
