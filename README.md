@@ -1,6 +1,6 @@
 > react 基于组件的可视化设计
 
-## [demo 地址](http://react-visual-design.kokiy.xyz/)
+## [demo 地址](http://react-visual-design.kokiy.xyz/visual-page/edit)
 
 ## feature
 
