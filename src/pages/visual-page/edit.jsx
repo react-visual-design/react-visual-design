@@ -144,7 +144,7 @@ export default class Index extends PureComponent {
             >
               <Button>扫码预览</Button>
             </Popover>
-            <Link to="/page">返回</Link>
+            <Link to="/visual-page">返回</Link>
           </div>
           <div>
             <a

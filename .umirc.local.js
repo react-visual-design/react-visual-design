@@ -2,8 +2,8 @@ import { defineConfig } from 'umi'
 export default defineConfig({
   publicPath: '/',
   proxy: {
-    '/api': {
-      target: 'http://127.0.0.1:7001',
+    '/bff': {
+      target: 'https://api-node.huanbaoyun.cloud',
       changeOrigin: true,
     },
   },
