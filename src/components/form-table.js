@@ -1,4 +1,3 @@
-import React from 'react'
 import { SchemaForm, useFormTableQuery, FormButtonGroup, Submit, Reset } from '@formily/antd'
 import * as allComp from '@formily/antd-components'
 import { Table } from 'antd'

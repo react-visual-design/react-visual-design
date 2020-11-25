@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import { PureComponent } from 'react'
 import { Link } from 'umi'
 import * as AntdIcons from '@ant-design/icons'
 import { v4 } from 'uuid'
@@ -139,7 +139,9 @@ export default class Index extends PureComponent {
               保存
             </Button>
             <Popover
-              content={<QRCode value={`${qrcodeUrlPrefix}/preview?pageId=${this.pageId}`} />}
+              content={
+                <QRCode value={`${qrcodeUrlPrefix}/visual-page/preview?pageId=${this.pageId}`} />
+              }
               title="保存后可以扫码预览"
             >
               <Button>扫码预览</Button>

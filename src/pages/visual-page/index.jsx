@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { Button, Modal, notification } from 'antd'
 import { Link } from 'umi'
 

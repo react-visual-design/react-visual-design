@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import { PureComponent } from 'react'
 import propTypes from 'prop-types'
 
 import { Modal } from 'antd'

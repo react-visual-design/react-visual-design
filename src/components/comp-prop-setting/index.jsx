@@ -1,4 +1,3 @@
-import React from 'react'
 import { SchemaForm, createAsyncFormActions } from '@formily/antd'
 import { isEmpty } from 'lodash'
 import * as allComp from '@formily/antd-components'

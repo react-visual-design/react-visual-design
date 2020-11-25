@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import { PureComponent } from 'react'
 
 import * as VisualDesignComponents from 'react-visual-design-components'
 import { map, get } from 'lodash'
