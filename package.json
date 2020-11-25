@@ -7,6 +7,7 @@
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage",
+    "update-icon": "npx iconfont-h5",
     "changelog": "conventional-changelog -p angular -i ./CHANGELOG.md -s -r 0"
   },
   "gitHooks": {
@@ -51,6 +52,7 @@
     "conventional-changelog-cli": "^2.1.0",
     "lint-staged": "^10.4.2",
     "prettier": "^2.1.2",
+    "react-iconfont-cli": "^2.0.0",
     "yorkie": "^2.0.0"
   }
 }
