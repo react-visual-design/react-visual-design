@@ -9,12 +9,14 @@
 3. 拖拽基于[html5 drag&drop 属性](https://developer.mozilla.org/zh-CN/docs/Web/API/HTML_Drag_and_Drop_API)
 4. 移动端组件基于[antd-mobile](https://mobile.ant.design/)
 5. 数据存储存储基于eggjs [react-visual-design-server](https://github.com/react-visual-design/react-visual-design-server)
-6. 封装好的组件封装成libary,发布到npm,可参考[nwb](https://github.com/insin/nwb)
+6. 把页面组件封装成lib,发布到npm,可参考[nwb](https://github.com/insin/nwb)
 
 
 ## 页面截图
 
-![效果图1](./README/screen1.jpg) ![效果图2](./README/screen2.jpg) ![效果图3](./README/screen3.jpg)
+![效果图1](./README/screen1.jpg)
+![效果图2](./README/screen2.jpg)
+![效果图3](./README/screen3.jpg)
 
 ## to do
 丰富组件库
