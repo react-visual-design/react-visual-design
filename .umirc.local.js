@@ -3,7 +3,7 @@ export default defineConfig({
   publicPath: '/',
   proxy: {
     '/bff': {
-      target: 'https://api-node.huanbaoyun.cloud',
+      target: 'http://127.0.0.1:7001',
       changeOrigin: true,
     },
   },

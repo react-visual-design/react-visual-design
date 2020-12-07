@@ -4,7 +4,6 @@
  */
 import { extend } from 'umi-request'
 import { notification } from 'antd'
-import { history } from 'umi'
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
@@ -35,9 +34,6 @@ const errorHandler = (error = {}) => {
     message: `请求错误 ${status}: ${url}`,
     description: errortext,
   })
-  if (response.status === 401) {
-    history.push('/login')
-  }
   throw new Error(error)
 }
 
