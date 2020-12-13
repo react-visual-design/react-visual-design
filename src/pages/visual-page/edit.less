@@ -1,5 +1,6 @@
 .page {
   width: 100%;
+  min-width: 1000px;
   overflow: hidden;
   background: #f0f0f0;
 
@@ -89,37 +90,6 @@
         position: absolute;
         top: 20px;
         right: 20px;
-      }
-      .comp-wrap {
-        position: relative;
-        &-active {
-          border: 1px solid #1890ff;
-        }
-
-        &:hover {
-          border: 1px dashed #1890ff;
-          .operate-wrap {
-            display: block;
-          }
-        }
-
-        .operate-wrap {
-          position: absolute;
-          top: 0;
-          right: 0;
-          z-index: 99;
-          display: none;
-          .operate-item {
-            margin-bottom: 1px;
-            background: #333;
-            cursor: pointer;
-          }
-        }
-      }
-      .null-comp {
-        padding: 12px 0;
-        text-align: center;
-        background: lightgray;
       }
     }
     .right {

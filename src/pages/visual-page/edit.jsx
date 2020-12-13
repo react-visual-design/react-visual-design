@@ -4,10 +4,11 @@ import * as AntdIcons from '@ant-design/icons'
 import { v4 } from 'uuid'
 import * as VisualDesignComponents from 'react-visual-design-components'
 import { Button, Select, Modal, notification, Popover } from 'antd'
-import { find, map, isEmpty, get } from 'lodash'
+import { find, map, get } from 'lodash'
+import IframeComm from 'react-iframe-comm'
 import QRCode from 'qrcode.react'
 
-import { DND, CompPropSetting, Devices, IconFont } from '@/components'
+import { DND, CompPropSetting, Devices } from '@/components'
 import { formMoalAction } from '@/components/comp-prop-setting'
 import { geVisualPageById, updateVisualPageData } from '@/service'
 import deviceList from '@/util/device'
@@ -74,9 +75,8 @@ export default class Index extends PureComponent {
     })
   }
 
-  handleOperateItem({ type, index }, e) {
+  handleOperateItem({ type, index }) {
     const { selectedList } = this.state
-    e.stopPropagation()
     if (type === 'delete') {
       Modal.confirm({
         title: '确定删除该组件?',
@@ -96,13 +96,13 @@ export default class Index extends PureComponent {
     }
   }
 
-  handleEditItemClick(id, comp) {
+  handleEditItemClick({ id, compDefaultData }) {
     const { selectedList, activeCompId } = this.state
     if (id === activeCompId) {
       return false
     }
     const matchComp = find(selectedList, { id })
-    matchComp.data = matchComp.data || comp.defaultProps.data
+    matchComp.data = matchComp.data || compDefaultData
     return this.setState({
       activeCompId: id,
       selectedList: [...selectedList],
@@ -110,13 +110,20 @@ export default class Index extends PureComponent {
     })
   }
 
-  handleDrop(index, { name }) {
+  handleDrop = ({ index, name }) => {
     const { selectedList } = this.state
     const id = v4()
     selectedList.splice(index, 0, { name, id })
     this.setState({
       selectedList: [...selectedList],
     })
+  }
+
+  onReceiveMessage = e => {
+    const data = JSON.parse(e.data)
+    if (data.func) {
+      this[data.func](data.params)
+    }
   }
 
   render() {
@@ -189,67 +196,17 @@ export default class Index extends PureComponent {
             </Select>
 
             <Devices deviceName={selectedDevice}>
-              {map(selectedList, ({ name, id, data }, index) => {
-                const Comp = VisualDesignComponents[name]
-                const showUp = index > 0
-                const showDown = index < selectedList.length - 1 && selectedList.length > 1
-                if (Comp) {
-                  return (
-                    <div
-                      className={`${styles['comp-wrap']} ${
-                        id === activeCompId ? styles['comp-wrap-active'] : ''
-                      }`}
-                      key={id}
-                      tabIndex="0"
-                    >
-                      <DND.Drop show={showDrop} handleDrop={this.handleDrop.bind(this, index)} />
-                      <div className={styles['operate-wrap']}>
-                        <IconFont
-                          className={styles['operate-item']}
-                          name="edit"
-                          size={24}
-                          onClick={this.handleEditItemClick.bind(this, id, Comp)}
-                        />
-                        <IconFont
-                          className={styles['operate-item']}
-                          name="delete"
-                          size={24}
-                          onClick={this.handleOperateItem.bind(this, { type: 'delete', index })}
-                        />
-                        {showUp && (
-                          <IconFont
-                            className={styles['operate-item']}
-                            name="up"
-                            size={24}
-                            onClick={this.handleOperateItem.bind(this, { type: 'up', index })}
-                          />
-                        )}
-                        {showDown && (
-                          <IconFont
-                            className={styles['operate-item']}
-                            name="down"
-                            size={24}
-                            onClick={this.handleOperateItem.bind(this, { type: 'down', index })}
-                          />
-                        )}
-                      </div>
-                      <Comp data={data} />
-                    </div>
-                  )
-                }
-                return (
-                  <div key={`${index}-null`} className={styles['null-comp']}>
-                    该组件不存在
-                  </div>
-                )
-              })}
-              <DND.Drop
-                show={showDrop}
-                handleDrop={this.handleDrop.bind(this, selectedList.length)}
+              <IframeComm
+                attributes={{
+                  src: '/visual-page/selected-comp',
+                  width: '100%',
+                  height: '100%',
+                  frameBorder: 0,
+                }}
+                postMessageData={{ selectedList, showDrop, activeCompId }}
+                // handleReady={onReady}
+                handleReceiveMessage={this.onReceiveMessage}
               />
-              {isEmpty(selectedList) && (
-                <h3 className={styles.emptyTip}>请从左侧选择组件拖动到手机区域</h3>
-              )}
             </Devices>
           </div>
           <div className={styles.right}>
