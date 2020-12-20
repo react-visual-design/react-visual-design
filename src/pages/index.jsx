@@ -1,3 +1,17 @@
 import { Link } from 'umi'
 
-export default () => <Link to="/visual-page">visual page</Link>
+import { SchemaForm, SchemaMarkupField as Field } from '@formily/antd' // 或者 @formily/nextss
+
+export default () => (
+  <>
+    <Link to="/visual-page">visual page</Link>
+    <SchemaForm
+      onChange={values => {
+        console.log(values)
+        console.log(values.name.toHTML())
+      }}
+    >
+      <Field type="string" name="name" title="Name" x-component="RichTextInput" />
+    </SchemaForm>
+  </>
+)

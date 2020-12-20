@@ -34,6 +34,7 @@
     "@umijs/test": "^3.2.24",
     "antd": "^4.8.0",
     "await-to-js": "^2.1.1",
+    "braft-editor": "^2.3.9",
     "classnames": "^2.2.6",
     "lodash": "^4.17.20",
     "qrcode.react": "^1.0.0",
