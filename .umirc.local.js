@@ -3,7 +3,7 @@ export default defineConfig({
   publicPath: '/',
   proxy: {
     '/bff': {
-      target: 'http://127.0.0.1:7001',
+      target: 'http://react-visual-design.kokiy.xyz',
       changeOrigin: true,
     },
   },

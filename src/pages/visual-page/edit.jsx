@@ -4,7 +4,7 @@ import * as AntdIcons from '@ant-design/icons'
 import { v4 } from 'uuid'
 import * as VisualDesignComponents from 'react-visual-design-components'
 import { Button, Select, Modal, notification, Popover } from 'antd'
-import { find, map, get } from 'lodash'
+import _, { find, map, get } from 'lodash'
 import IframeComm from 'react-iframe-comm'
 import QRCode from 'qrcode.react'
 
@@ -16,18 +16,23 @@ import { arrayIndexForward, arrayIndexBackward } from '@/util/array'
 import styles from './edit.less'
 
 const { Option } = Select
-
 export default class Index extends PureComponent {
   state = {
-    dragList: map(Object.values(VisualDesignComponents), v => {
-      const { compAttr } = v
-      const IconComp = AntdIcons[compAttr.iconName || 'StarOutlined']
-      return {
-        ...compAttr,
-        key: compAttr.name,
-        icon: <IconComp />,
-      }
-    }),
+    dragList: _(Object.values(VisualDesignComponents))
+      .map(v => {
+        const { compAttr } = v
+        if (!compAttr) {
+          return false
+        }
+        const IconComp = AntdIcons[compAttr.iconName || 'StarOutlined']
+        return {
+          ...compAttr,
+          key: compAttr.name,
+          icon: <IconComp />,
+        }
+      })
+      .compact()
+      .value(),
     selectedList: [],
     showDrop: false,
     activeCompId: '',
