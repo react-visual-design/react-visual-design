@@ -7,9 +7,8 @@ import { Button, Select, Modal, notification, Popover } from 'antd'
 import _, { find, map, get } from 'lodash'
 import IframeComm from 'react-iframe-comm'
 import QRCode from 'qrcode.react'
-
-import { DND, CompPropSetting, Devices } from '@/components'
-import { formMoalAction } from '@/components/comp-prop-setting'
+import { Drag, CompPropSetting, Devices } from '@/components'
+import { propFormIns } from '@/components/comp-prop-setting'
 import { geVisualPageById, updateVisualPageData } from '@/service'
 import deviceList from '@/util/device'
 import { arrayIndexForward, arrayIndexBackward } from '@/util/array'
@@ -37,7 +36,6 @@ export default class Index extends PureComponent {
     showDrop: false,
     activeCompId: '',
     selectedDevice: 'iphone-8',
-    compSettingKey: v4(),
   }
 
   async componentDidMount() {
@@ -57,15 +55,18 @@ export default class Index extends PureComponent {
     this.setState({ showDrop: false })
   }
 
-  handleApplySetting = async () => {
-    const { values } = await formMoalAction.submit()
+  handleApplySetting = () => {
     const { activeCompId, selectedList } = this.state
     const matchComp = find(selectedList, { id: activeCompId })
     if (!matchComp) {
       return false
     }
-    matchComp.data = values
-    return this.setState({ selectedList: [...selectedList] })
+    const { valid, values } = propFormIns.getState()
+    if (valid) {
+      matchComp.data = values
+      return this.setState({ selectedList: [...selectedList] })
+    }
+    return null
   }
 
   handleDeviceChange = val => {
@@ -108,11 +109,15 @@ export default class Index extends PureComponent {
     }
     const matchComp = find(selectedList, { id })
     matchComp.data = matchComp.data || compDefaultData
-    return this.setState({
-      activeCompId: id,
-      selectedList: [...selectedList],
-      compSettingKey: v4(),
-    })
+    return this.setState(
+      {
+        activeCompId: id,
+        selectedList: [...selectedList],
+      },
+      () => {
+        propFormIns.setValues(matchComp.data)
+      },
+    )
   }
 
   handleDrop = ({ index, name }) => {
@@ -125,21 +130,18 @@ export default class Index extends PureComponent {
   }
 
   onReceiveMessage = e => {
-    const data = JSON.parse(e.data)
-    if (data.func) {
-      this[data.func](data.params)
+    try {
+      const data = JSON.parse(e.data)
+      if (_.isFunction(this[data.func])) {
+        this[data.func](data.params)
+      }
+    } catch (err) {
+      console.error(err)
     }
   }
 
   render() {
-    const {
-      dragList,
-      showDrop,
-      selectedList,
-      activeCompId,
-      selectedDevice,
-      compSettingKey,
-    } = this.state
+    const { dragList, showDrop, selectedList, activeCompId, selectedDevice } = this.state
     const activeComp = find(selectedList, { id: activeCompId }) || {}
     const activeCompSchema = get(VisualDesignComponents, `${activeComp.name}.propSchema`)
     return (
@@ -173,7 +175,7 @@ export default class Index extends PureComponent {
             <div className={styles.title}>组件库</div>
             <div className={styles.comp}>
               <p className={styles['comp-title']}>基础组件</p>
-              <DND.Drag
+              <Drag
                 data={dragList}
                 renderChild={({ title, icon }) => (
                   <div className={styles['comp-item']}>
@@ -203,13 +205,12 @@ export default class Index extends PureComponent {
             <Devices deviceName={selectedDevice}>
               <IframeComm
                 attributes={{
-                  src: '/visual-page/selected-comp',
+                  src: '/visual-page/checked-comp',
                   width: '100%',
                   height: '100%',
                   frameBorder: 0,
                 }}
                 postMessageData={{ selectedList, showDrop, activeCompId }}
-                // handleReady={onReady}
                 handleReceiveMessage={this.onReceiveMessage}
               />
             </Devices>
@@ -224,10 +225,9 @@ export default class Index extends PureComponent {
               )}
             </div>
             <CompPropSetting
-              key={compSettingKey}
               schema={activeCompSchema}
               data={activeComp.data}
-              id={activeComp.id}
+              id={activeCompId}
               handlePropChange={this.handlePropChange}
             />
           </div>

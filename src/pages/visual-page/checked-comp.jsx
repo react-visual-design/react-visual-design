@@ -1,10 +1,10 @@
 import { PureComponent } from 'react'
+import { Alert } from 'antd'
 import * as VisualDesignComponents from 'react-visual-design-components'
 import { map, isEmpty } from 'lodash'
+import { Drop, Icon } from '@/components'
 
-import { DND, IconFont } from '@/components'
-
-import styles from './selected-comp.less'
+import styles from './checked-comp.less'
 
 export default class SelectedComp extends PureComponent {
   state = {
@@ -58,32 +58,32 @@ export default class SelectedComp extends PureComponent {
                 key={id}
                 tabIndex="0"
               >
-                <DND.Drop show={showDrop} handleDrop={this.handleDrop.bind(this, index)} />
+                <Drop show={showDrop} handleDrop={this.handleDrop.bind(this, index)} />
                 <div className={styles['operate-wrap']}>
-                  <IconFont
+                  <Icon
                     className={styles['operate-item']}
-                    name="edit"
+                    type="edit"
                     size={24}
                     onClick={this.handleEditItemClick.bind(this, id, Comp)}
                   />
-                  <IconFont
+                  <Icon
                     className={styles['operate-item']}
-                    name="delete"
+                    type="delete"
                     size={24}
                     onClick={this.handleOperateItem.bind(this, { type: 'delete', index })}
                   />
                   {showUp && (
-                    <IconFont
+                    <Icon
                       className={styles['operate-item']}
-                      name="up"
+                      type="up"
                       size={24}
                       onClick={this.handleOperateItem.bind(this, { type: 'up', index })}
                     />
                   )}
                   {showDown && (
-                    <IconFont
+                    <Icon
                       className={styles['operate-item']}
-                      name="down"
+                      type="down"
                       size={24}
                       onClick={this.handleOperateItem.bind(this, { type: 'down', index })}
                     />
@@ -99,10 +99,8 @@ export default class SelectedComp extends PureComponent {
             </div>
           )
         })}
-        <DND.Drop show={showDrop} handleDrop={this.handleDrop.bind(this, selectedList.length)} />
-        {isEmpty(selectedList) && (
-          <h3 className={styles.emptyTip}>请从左侧选择组件拖动到手机区域</h3>
-        )}
+        <Drop show={showDrop} handleDrop={this.handleDrop.bind(this, selectedList.length)} />
+        {isEmpty(selectedList) && <Alert message="请从左侧选择组件拖动到手机区域" type="info" />}
       </>
     )
   }

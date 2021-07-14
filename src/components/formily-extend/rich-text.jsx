@@ -1,8 +1,8 @@
 import React from 'react'
 import BraftEditor from 'braft-editor'
 import 'braft-editor/dist/index.css'
-
-import { registerFormField, connect } from '@formily/antd'
+import { connect, mapProps } from '@formily/react'
+import { LoadingOutlined } from '@ant-design/icons'
 
 const controls = [
   'bold',
@@ -26,4 +26,20 @@ const RichText = props => {
   )
 }
 
-registerFormField('RichText', connect()(RichText))
+export const Select = connect(
+  RichText,
+  mapProps(
+    {
+      dataSource: 'options',
+      loading: true,
+    },
+    (props, field) => {
+      return {
+        ...props,
+        suffixIcon: field?.loading || field?.validating ? <LoadingOutlined /> : props.suffixIcon,
+      }
+    },
+  ),
+)
+
+export default Select

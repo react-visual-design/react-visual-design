@@ -1,4 +1,15 @@
 import zhCN from 'antd/es/locale/zh_CN'
 import { ConfigProvider } from 'antd'
 
-export default props => <ConfigProvider locale={zhCN}>{props.children}</ConfigProvider>
+import { ErrorBoundary } from '@/components'
+
+
+export default (props) => {
+  return (
+    <ErrorBoundary>
+      <ConfigProvider locale={zhCN}>
+        {props.children}
+      </ConfigProvider>
+    </ErrorBoundary>
+  )
+}

@@ -8,6 +8,4 @@ package.json
 tsconfig.json
 README.md
 CHANGELOG.md
-src/components/iconfont/**/*
-iconfont.json
 

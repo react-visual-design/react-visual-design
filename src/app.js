@@ -1,6 +1,11 @@
-import { setValidationLanguage } from '@formily/antd'
-import '@/components/formily-extend/rich-text'
-
+import dayjs from 'dayjs'
+import { setValidateLanguage } from '@formily/core'
 import 'antd/dist/antd.css'
+import '@formily/antd/dist/antd.css'
+import 'dayjs/locale/zh-cn'
 
-setValidationLanguage('zh')
+dayjs.locale('zh-cn')
+setValidateLanguage('zh-cn')
+export { }
+
+
