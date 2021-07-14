@@ -1,6 +1,7 @@
 import { PureComponent } from 'react'
 import { Link } from 'umi'
 import * as AntdIcons from '@ant-design/icons'
+import { createForm } from '@formily/core'
 import { v4 } from 'uuid'
 import * as VisualDesignComponents from 'react-visual-design-components'
 import { Button, Select, Modal, notification, Popover } from 'antd'
@@ -8,13 +9,14 @@ import _, { find, map, get } from 'lodash'
 import IframeComm from 'react-iframe-comm'
 import QRCode from 'qrcode.react'
 import { Drag, CompPropSetting, Devices } from '@/components'
-import { propFormIns } from '@/components/comp-prop-setting'
 import { geVisualPageById, updateVisualPageData } from '@/service'
 import deviceList from '@/util/device'
 import { arrayIndexForward, arrayIndexBackward } from '@/util/array'
 import styles from './edit.less'
 
 const { Option } = Select
+
+let propFormIns
 export default class Index extends PureComponent {
   state = {
     dragList: _(Object.values(VisualDesignComponents))
@@ -55,18 +57,14 @@ export default class Index extends PureComponent {
     this.setState({ showDrop: false })
   }
 
-  handleApplySetting = () => {
+  handleApplySetting = async () => {
     const { activeCompId, selectedList } = this.state
     const matchComp = find(selectedList, { id: activeCompId })
     if (!matchComp) {
       return false
     }
-    const { valid, values } = propFormIns.getState()
-    if (valid) {
-      matchComp.data = values
-      return this.setState({ selectedList: [...selectedList] })
-    }
-    return null
+    matchComp.data = await propFormIns.submit()
+    return this.setState({ selectedList: [...selectedList] })
   }
 
   handleDeviceChange = val => {
@@ -109,13 +107,14 @@ export default class Index extends PureComponent {
     }
     const matchComp = find(selectedList, { id })
     matchComp.data = matchComp.data || compDefaultData
+    propFormIns = createForm()
     return this.setState(
       {
         activeCompId: id,
         selectedList: [...selectedList],
       },
       () => {
-        propFormIns.setValues(matchComp.data)
+        propFormIns.setValues(_.cloneDeep(matchComp.data), 'overwrite')
       },
     )
   }
@@ -226,8 +225,9 @@ export default class Index extends PureComponent {
             </div>
             <CompPropSetting
               schema={activeCompSchema}
-              data={activeComp.data}
+              key={activeCompId}
               id={activeCompId}
+              propFormIns={propFormIns}
               handlePropChange={this.handlePropChange}
             />
           </div>

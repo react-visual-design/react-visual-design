@@ -49,15 +49,21 @@ export const createTableColumns = (formTableEl) => {
 
   return [
     {
+      title: '编号',
+      dataIndex: 'id',
+      width: '5%',
+      ellipsis: true,
+    },
+    {
       title: '名称',
       dataIndex: 'name',
-      width: '20%',
+      width: '15%',
       ellipsis: true,
     },
     {
       title: '描述',
       dataIndex: 'description',
-      width: '30%',
+      width: '20%',
       ellipsis: true,
     },
     {
