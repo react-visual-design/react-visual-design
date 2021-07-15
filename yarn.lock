@@ -10169,10 +10169,10 @@ react-tween-state@^0.1.5:
     raf "^3.1.0"
     tween-functions "^1.0.1"
 
-react-visual-design-components@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.nlark.com/react-visual-design-components/download/react-visual-design-components-2.0.1.tgz#fa88174c81d3d5439bc37860854334489bdd32c8"
-  integrity sha1-+ogXTIHT1UObw3hghUM0SJvdMsg=
+react-visual-design-components@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.nlark.com/react-visual-design-components/download/react-visual-design-components-2.0.2.tgz?cache=0&sync_timestamp=1626339437313&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact-visual-design-components%2Fdownload%2Freact-visual-design-components-2.0.2.tgz#ef4e8716471db0a5443364915f4586646b2ff88b"
+  integrity sha1-706HFkcdsKVEM2SRX0WGZGsv+Is=
   dependencies:
     antd-mobile "^2.3.4"
     dayjs "^1.9.7"
