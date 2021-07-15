@@ -1,14 +1,19 @@
 .page {
-  width: 100%;
-  min-width: 1000px;
+  display: grid;
+  grid-template-areas:
+    'head head head'
+    'components-area  phone-area attr-setting-area';
+  grid-template-rows: 48px auto;
   overflow: hidden;
+  grid-template-columns: 300px auto 500px;
+  width: 100vw;
+  height: 100vh;
   background: #f0f0f0;
-
   .head {
     display: flex;
+    grid-area: head;
     align-items: center;
-    height: 48px;
-    margin-bottom: 2px;
+    height: 50px;
     padding: 0 12px;
     background: #fff;
     box-shadow: 0 1px 4px 0 hsla(0, 0%, 76%, 0.6);
@@ -34,90 +39,85 @@
     }
   }
 
-  .content {
-    display: flex;
-    .left {
-      flex: 3;
-      height: 100%;
-      padding: 10px 20px;
-      background: #fff;
+  .left {
+    flex: 3;
+    grid-area: components-area;
+    height: 100%;
+    padding: 10px 20px;
+    background: #fff;
 
-      .title {
-        margin: 15px 0;
-        font-size: 16px;
-        text-align: center;
-      }
-
-      .comp {
-        &-title {
-          text-align: left;
-        }
-        &-item {
-          display: flex;
-          flex-direction: column;
-          width: 80px;
-          padding: 6px;
-          color: #424242;
-          font-size: 12px;
-          text-align: center;
-          background: #f4f4f4;
-          border: 1px solid #ddd;
-          cursor: pointer;
-          transition: all 0.3s ease-in-out;
-
-          &:hover {
-            color: #1890ff;
-            background: #fff;
-            border: 1px solid #1890ff;
-          }
-
-          > span {
-            margin-top: 4px;
-          }
-        }
-      }
+    .title {
+      margin: 15px 0;
+      font-size: 16px;
+      text-align: center;
     }
-    .center {
-      position: relative;
-      flex: 10;
-      padding: 65px 0 0;
-      .emptyTip {
-        height: 50px;
-        line-height: 50px;
-        text-align: center;
-      }
-      .deviceSelect {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-      }
-    }
-    .right {
-      flex: 7;
-      max-height: 700px;
-      padding: 10px;
-      overflow: auto;
-      background: #fff;
-      // transform: translateX(100%);
-      // opacity: 0;
-      // transition: all 0.3s;
 
-      &-show {
-        transform: translateX(0);
-        opacity: 1;
+    .comp {
+      &-title {
+        text-align: left;
       }
-
-      .title {
+      &-item {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 15px 0;
-        font-size: 16px;
+        flex-direction: column;
+        width: 80px;
+        padding: 6px;
+        color: #424242;
+        font-size: 12px;
+        text-align: center;
+        background: #f4f4f4;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          color: #1890ff;
+          background: #fff;
+          border: 1px solid #1890ff;
+        }
+
         > span {
-          font-weight: bolder;
-          font-size: 18px;
+          margin-top: 4px;
         }
       }
+    }
+  }
+  .center {
+    position: relative;
+    grid-area: phone-area;
+    padding-top: 20px;
+    .emptyTip {
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+    }
+    .deviceSelect {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+  }
+  .right {
+    grid-area: attr-setting-area;
+    padding: 10px 20px;
+    background: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 15px 0;
+      font-size: 16px;
+      > span {
+        font-weight: bolder;
+        font-size: 18px;
+      }
+    }
+    .content {
+      height: 300px;
+      flex: 1;
+      overflow: auto;
     }
   }
 }

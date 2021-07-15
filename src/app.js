@@ -6,6 +6,6 @@ import 'dayjs/locale/zh-cn'
 
 dayjs.locale('zh-cn')
 setValidateLanguage('zh-cn')
-export { }
+
 
 

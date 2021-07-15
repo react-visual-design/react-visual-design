@@ -169,60 +169,60 @@ export default class Index extends PureComponent {
             />
           </div>
         </section>
-        <section className={styles.content}>
-          <div className={styles.left}>
-            <div className={styles.title}>组件库</div>
-            <div className={styles.comp}>
-              <p className={styles['comp-title']}>基础组件</p>
-              <Drag
-                data={dragList}
-                renderChild={({ title, icon }) => (
-                  <div className={styles['comp-item']}>
-                    {icon}
-                    <span>{title}</span>
-                  </div>
-                )}
-                handleDragStart={this.handleDragStart}
-                handleDragEnd={this.handleDragEnd}
-              />
-            </div>
-          </div>
-          <div className={styles.center}>
-            <Select
-              className={styles.deviceSelect}
-              value={selectedDevice}
-              style={{ width: 150 }}
-              onChange={this.handleDeviceChange}
-            >
-              {map(deviceList, ({ title, value }) => (
-                <Option key={value} value={value}>
-                  {title}
-                </Option>
-              ))}
-            </Select>
-
-            <Devices deviceName={selectedDevice}>
-              <IframeComm
-                attributes={{
-                  src: '/visual-page/checked-comp',
-                  width: '100%',
-                  height: '100%',
-                  frameBorder: 0,
-                }}
-                postMessageData={{ selectedList, showDrop, activeCompId }}
-                handleReceiveMessage={this.onReceiveMessage}
-              />
-            </Devices>
-          </div>
-          <div className={styles.right}>
-            <div className={styles.title}>
-              <span>属性设置</span>
-              {activeComp.id && (
-                <Button type="primary" onClick={this.handleApplySetting}>
-                  应用
-                </Button>
+        <div className={styles.left}>
+          <div className={styles.title}>组件库</div>
+          <div className={styles.comp}>
+            <p className={styles['comp-title']}>基础组件</p>
+            <Drag
+              data={dragList}
+              renderChild={({ title, icon }) => (
+                <div className={styles['comp-item']}>
+                  {icon}
+                  <span>{title}</span>
+                </div>
               )}
-            </div>
+              handleDragStart={this.handleDragStart}
+              handleDragEnd={this.handleDragEnd}
+            />
+          </div>
+        </div>
+        <div className={styles.center}>
+          <Select
+            className={styles.deviceSelect}
+            value={selectedDevice}
+            style={{ width: 150 }}
+            onChange={this.handleDeviceChange}
+          >
+            {map(deviceList, ({ title, value }) => (
+              <Option key={value} value={value}>
+                {title}
+              </Option>
+            ))}
+          </Select>
+
+          <Devices deviceName={selectedDevice}>
+            <IframeComm
+              attributes={{
+                src: '/visual-page/checked-comp',
+                width: '100%',
+                height: '100%',
+                frameBorder: 0,
+              }}
+              postMessageData={{ selectedList, showDrop, activeCompId }}
+              handleReceiveMessage={this.onReceiveMessage}
+            />
+          </Devices>
+        </div>
+        <div className={styles.right}>
+          <div className={styles.title}>
+            <span>属性设置</span>
+            {activeComp.id && (
+              <Button type="primary" onClick={this.handleApplySetting}>
+                应用
+              </Button>
+            )}
+          </div>
+          <div className={styles.content}>
             <CompPropSetting
               schema={activeCompSchema}
               key={activeCompId}
@@ -231,7 +231,7 @@ export default class Index extends PureComponent {
               handlePropChange={this.handlePropChange}
             />
           </div>
-        </section>
+        </div>
       </div>
     )
   }
