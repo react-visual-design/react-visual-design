@@ -19,16 +19,17 @@ export default defineConfig({
     qrcodeUrlPrefix: 'http://react-visual-design.kokiy.xyz',
     ICON_FONT_URL: '//at.alicdn.com/t/font_2045500_xll0v0fe66n.js', //icon font url},
   },
-  // extraBabelPresets: [
-  //   [
-  //     'babel-plugin-import',
-  //     { libraryName: 'antd', libraryDirectory: 'lib', style: true },
-  //   ],
-  //   [
-  //     'babel-plugin-import',
-  //     { libraryName: '@formily/antd', libraryDirectory: 'lib', style: true },
-  //   ],
-  // ],
+  extraBabelPlugins: [
+    [
+      'babel-plugin-import',
+      {
+        libraryName: 'antd-mobile',
+        libraryDirectory: 'es',
+        style: true,
+      },
+      'antd-mobile',
+    ],
+  ],
   chainWebpack(memo) {
     memo.plugin('VersionFile').use(
       new VersionFile({
