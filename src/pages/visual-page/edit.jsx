@@ -4,9 +4,9 @@ import * as AntdIcons from '@ant-design/icons'
 import { createForm } from '@formily/core'
 import { v4 } from 'uuid'
 import * as VisualDesignComponents from 'react-visual-design-components'
+import { Iframe } from 'react-visual-design-components'
 import { Button, Select, Modal, notification, Popover } from 'antd'
 import _, { find, map, get } from 'lodash'
-import IframeComm from 'react-iframe-comm'
 import QRCode from 'qrcode.react'
 import { Drag, CompPropSetting, Devices } from '@/components'
 import { geVisualPageById, updateVisualPageData } from '@/service'
@@ -141,6 +141,7 @@ export default class Index extends PureComponent {
 
   render() {
     const { dragList, showDrop, selectedList, activeCompId, selectedDevice } = this.state
+    console.log(showDrop)
     const activeComp = find(selectedList, { id: activeCompId }) || {}
     const activeCompSchema = get(VisualDesignComponents, `${activeComp.name}.propSchema`)
     return (
@@ -201,7 +202,7 @@ export default class Index extends PureComponent {
           </Select>
 
           <Devices deviceName={selectedDevice}>
-            <IframeComm
+            <Iframe
               attributes={{
                 src: '/visual-page/checked-comp',
                 width: '100%',

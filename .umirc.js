@@ -40,5 +40,5 @@ export default defineConfig({
     )
     memo.plugin('AntdDayjsWebpackPlugin').use(AntdDayjsWebpackPlugin)
   },
-  mfsu: {}
+  // mfsu: {}
 })

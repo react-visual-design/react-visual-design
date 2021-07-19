@@ -28,7 +28,7 @@
     "@formily/antd": "^2.0.0-beta.78",
     "@formily/core": "^2.0.0-beta.78",
     "@formily/react": "^2.0.0-beta.78",
-    "@umijs/preset-react": "1.8.17",
+    "@umijs/preset-react": "1.8.19",
     "@umijs/test": "^3.5.8",
     "antd": "^4.16.7",
     "await-to-js": "^3.0.0",
@@ -39,8 +39,7 @@
     "qrcode.react": "^1.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-iframe-comm": "^1.2.2",
-    "react-visual-design-components": "^2.0.3",
+    "react-visual-design-components": "^2.0.5",
     "umi": "^3.5.10",
     "umi-request": "^1.3.9",
     "uuid": "^8.3.2"
