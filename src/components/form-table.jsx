@@ -24,8 +24,12 @@ export default class extends React.PureComponent {
     const { fetchTableData } = this.props
     const { pageSize, current, filters } = this.state
     this.setState({ loading: true }, () => {
-      fetchTableData({ page: current, ...filters, limit: pageSize }).then(res => {
-        this.setState({ total: res.count, dataSource: res. rows, loading: false })
+      fetchTableData({
+        offset: pageSize * (current - 1),
+        limit: pageSize,
+        ...filters,
+      }).then(res => {
+        this.setState({ total: res.count, dataSource: res.rows, loading: false })
       })
     })
   }
