@@ -12,7 +12,7 @@ export default class ErrorBoundary extends Component {
   }
 
   componentDidCatch() {
-    console.error(error, errorInfo)
+    // console.error(error, errorInfo)
     // 你同样可以将错误日志上报给服务器
     // logErrorToMyService(error, errorInfo)
   }
