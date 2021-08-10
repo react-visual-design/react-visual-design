@@ -40,9 +40,8 @@ export const modalSchema = {
 
 export const createTableColumns = (formTableEl) => {
 
-  const onsubmit = async ({ data, confirm }) => {
-    await updateVisualPage(data)
-    confirm()
+  const onsubmit = async (values) => {
+    await updateVisualPage(values)
     formTableEl.current.reset()
     message.success('编辑成功')
   }
@@ -88,9 +87,16 @@ export const createTableColumns = (formTableEl) => {
             size="small"
             onClick={async () => {
               const values = await geVisualPageById(id)
-              FormDialog({ schema: modalSchema, title: '编辑模块', onsubmit }).open({
-                initialValues: values
-              })
+              FormDialog({ schema: modalSchema, title: '编辑模块' })
+                .forOpen((_, next) => {
+                  next({
+                    initialValues: values,
+                  })
+                })
+                .forConfirm((payload, next) => {
+                  onsubmit(payload.values)
+                  next(payload)
+                }).open()
             }}
           >
             编辑

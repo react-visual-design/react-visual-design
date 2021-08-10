@@ -1,8 +1,7 @@
 import React from 'react'
 import BraftEditor from 'braft-editor'
 import 'braft-editor/dist/index.css'
-import { connect, mapProps } from '@formily/react'
-import { LoadingOutlined } from '@ant-design/icons'
+import { connect } from '@formily/react'
 
 const controls = [
   'bold',
@@ -15,7 +14,7 @@ const controls = [
   'media',
 ]
 
-const RichText = props => {
+export default connect(props => {
   return (
     <BraftEditor
       style={{ border: '1px solid #d1d1d1', borderRadius: '5px' }}
@@ -24,22 +23,4 @@ const RichText = props => {
       onChange={editorState => props.onChange(editorState.toHTML())}
     />
   )
-}
-
-export const Select = connect(
-  RichText,
-  mapProps(
-    {
-      dataSource: 'options',
-      loading: true,
-    },
-    (props, field) => {
-      return {
-        ...props,
-        suffixIcon: field?.loading || field?.validating ? <LoadingOutlined /> : props.suffixIcon,
-      }
-    },
-  ),
-)
-
-export default Select
+})

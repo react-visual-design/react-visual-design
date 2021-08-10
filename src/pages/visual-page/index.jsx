@@ -10,9 +10,8 @@ export default () => {
   const formTableEl = useRef(null)
 
   const onsubmit = useCallback(
-    async ({ data, confirm }) => {
-      await addVisualPage(data)
-      confirm()
+    async values => {
+      await addVisualPage(values)
       formTableEl.current.reset()
       message.success('新增成功')
     },
@@ -31,9 +30,17 @@ export default () => {
           <Button
             type="primary"
             onClick={() => {
-              FormDialog({ schema: modalSchema, title: '新增页面', onsubmit }).open({
-                initialValues: {},
-              })
+              FormDialog({ schema: modalSchema, title: '新增页面' })
+                .forOpen((_, next) => {
+                  next({
+                    initialValues: {},
+                  })
+                })
+                .forConfirm((payload, next) => {
+                  onsubmit(payload.values)
+                  next(payload)
+                })
+                .open()
             }}
           >
             新增页面

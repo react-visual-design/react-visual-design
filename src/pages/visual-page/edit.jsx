@@ -63,8 +63,12 @@ export default class Index extends PureComponent {
     if (!matchComp) {
       return false
     }
-    matchComp.data = await propFormIns.submit()
-    return this.setState({ selectedList: [...selectedList] })
+    try {
+      matchComp.data = await propFormIns.submit()
+      return this.setState({ selectedList: [...selectedList] })
+    } catch (err) {
+      return console.error(err)
+    }
   }
 
   handleDeviceChange = val => {
@@ -108,15 +112,11 @@ export default class Index extends PureComponent {
     const matchComp = find(selectedList, { id })
     matchComp.data = matchComp.data || compDefaultData
     propFormIns = createForm()
-    return this.setState(
-      {
-        activeCompId: id,
-        selectedList: [...selectedList],
-      },
-      () => {
-        propFormIns.setValues(_.cloneDeep(matchComp.data), 'overwrite')
-      },
-    )
+    propFormIns.setValues(_.cloneDeep(matchComp.data), 'overwrite')
+    return this.setState({
+      activeCompId: id,
+      selectedList: [...selectedList],
+    })
   }
 
   handleDrop = ({ index, name }) => {
@@ -141,7 +141,6 @@ export default class Index extends PureComponent {
 
   render() {
     const { dragList, showDrop, selectedList, activeCompId, selectedDevice } = this.state
-    console.log(showDrop)
     const activeComp = find(selectedList, { id: activeCompId }) || {}
     const activeCompSchema = get(VisualDesignComponents, `${activeComp.name}.propSchema`)
     return (
