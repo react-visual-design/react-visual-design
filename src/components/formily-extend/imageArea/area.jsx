@@ -15,7 +15,6 @@ const modalSchema = {
       type: 'string',
       title: 'url',
       required: true,
-      maxLength: 20,
       triggerType: 'onBlur',
       'x-decorator': 'FormItem',
       'x-component': 'Input',
