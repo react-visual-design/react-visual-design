@@ -13,20 +13,18 @@ class ImageArea extends PureComponent {
   static propTypes = {
     value: PropTypes.array,
     imgSrc: PropTypes.string,
-    imgWidth: PropTypes.string,
-    imgHeight: PropTypes.string,
   }
 
   static defaultProps = {
     imgSrc: '',
-    imgWidth: '100%',
-    imgHeight: '100%',
   }
 
   constructor(props) {
     super(props)
     this.state = {
       coordinates: props.value,
+      imgWidthZoomRadio: null,
+      imgHeightZoomRadio: null,
     }
   }
 
@@ -35,6 +33,19 @@ class ImageArea extends PureComponent {
   imgRef = createRef(null)
 
   imgmapName = v4()
+
+  componentDidMount() {
+    this.imgRef.current.onload = () => {
+      this.setState({
+        imgWidthZoomRadio: +(this.imgRef.current.width / this.imgRef.current.naturalWidth).toFixed(
+          2,
+        ),
+        imgHeightZoomRadio: +(
+          this.imgRef.current.height / this.imgRef.current.naturalHeight
+        ).toFixed(2),
+      })
+    }
+  }
 
   getCursorPosition = e => {
     const { left, top } = this.imgContainerRef.current.getBoundingClientRect()
@@ -78,22 +89,31 @@ class ImageArea extends PureComponent {
 
   updateCoordinate = ({ type, coordinate }) => {
     let { coordinates } = this.state
+    const { imgWidthZoomRadio, imgHeightZoomRadio } = this.state
     const matchIndex = coordinates.findIndex(item => item.id === coordinate.id)
     if (type === 'delete') {
       coordinates.splice(matchIndex, 1)
     } else if (type === 'add' || type === 'update') {
+      const { width, height, x, y } = coordinate
+      const newCoordinate = {
+        ...coordinate,
+        x: +(x / imgWidthZoomRadio).toFixed(2),
+        y: +(y / imgWidthZoomRadio).toFixed(2),
+        width: +(width / imgWidthZoomRadio).toFixed(2),
+        height: +(height / imgHeightZoomRadio).toFixed(2),
+      }
       if (matchIndex === -1) {
-        coordinates = [...coordinates, coordinate]
+        coordinates = [...coordinates, newCoordinate]
       } else {
-        coordinates[matchIndex] = coordinate
+        coordinates[matchIndex] = newCoordinate
       }
     }
     this.setState({ coordinates: [...coordinates] })
   }
 
   render() {
-    const { imgSrc, imgWidth = '100%', imgHeight = '100%' } = this.props
-    const { coordinates } = this.state
+    const { imgSrc } = this.props
+    const { coordinates, imgWidthZoomRadio, imgHeightZoomRadio } = this.state
     return (
       <div
         className={styles.container}
@@ -103,22 +123,33 @@ class ImageArea extends PureComponent {
         onMouseUp={this.onMouseUp}
       >
         <img
-          className="img"
+          className={styles.img}
           ref={this.imgRef}
           src={imgSrc || defaultImg}
-          width={imgWidth}
-          height={imgHeight}
-          alt=""
           draggable={false}
           useMap={`#${this.imgmapName}`}
         />
-        {coordinates.map(coordinate => (
-          <Area
-            key={coordinate.id}
-            coordinate={coordinate}
-            updateCoordinate={this.updateCoordinate}
-          />
-        ))}
+        {imgWidthZoomRadio &&
+          imgHeightZoomRadio &&
+          coordinates.map(coordinate => {
+            const { width, height, x, y } = coordinate
+            const newCoordinate = {
+              ...coordinate,
+              x: +(x * imgWidthZoomRadio).toFixed(2),
+              y: +(y * imgHeightZoomRadio).toFixed(2),
+              width: +(width * imgWidthZoomRadio).toFixed(2),
+              height: +(height * imgHeightZoomRadio).toFixed(2),
+            }
+            return (
+              <Area
+                key={coordinate.id}
+                coordinate={newCoordinate}
+                updateCoordinate={this.updateCoordinate}
+                imgWidthZoomRadio={imgWidthZoomRadio}
+                imgHeightZoomRadio={imgHeightZoomRadio}
+              />
+            )
+          })}
       </div>
     )
   }

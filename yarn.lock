@@ -3510,9 +3510,8 @@ camelcase@^6.0.0:
   integrity sha1-kkr4gcnVJaydh/QNlk5c6pgqGAk=
 
 caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001179, caniuse-lite@^1.0.30001219, caniuse-lite@^1.0.30001245:
-  version "1.0.30001245"
-  resolved "https://registry.nlark.com/caniuse-lite/download/caniuse-lite-1.0.30001245.tgz?cache=0&sync_timestamp=1626238653626&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcaniuse-lite%2Fdownload%2Fcaniuse-lite-1.0.30001245.tgz#45b941bbd833cb0fa53861ff2bae746b3c6ca5d4"
-  integrity sha1-RblBu9gzyw+lOGH/K650azxspdQ=
+  version "1.0.30001249"
+  resolved "https://registry.nlark.com/caniuse-lite/download/caniuse-lite-1.0.30001249.tgz"
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -10032,10 +10031,10 @@ react-tween-state@^0.1.5:
     raf "^3.1.0"
     tween-functions "^1.0.1"
 
-react-visual-design-components@^2.0.7:
-  version "2.0.7"
-  resolved "https://registry.nlark.com/react-visual-design-components/download/react-visual-design-components-2.0.7.tgz#fea4e4a621403f2c9ac25254c895032e9a6ab537"
-  integrity sha1-/qTkpiFAPyyawlJUyJUDLppqtTc=
+react-visual-design-components@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.nlark.com/react-visual-design-components/download/react-visual-design-components-2.0.8.tgz?cache=0&sync_timestamp=1628652462256&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact-visual-design-components%2Fdownload%2Freact-visual-design-components-2.0.8.tgz#5f8a9b01085966354dc7f8cc1f6dac4a00040928"
+  integrity sha1-X4qbAQhZZjVNx/jMH22sSgAECSg=
   dependencies:
     antd-mobile "^2.3.4"
     dayjs "^1.9.7"

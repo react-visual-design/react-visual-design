@@ -10,9 +10,6 @@ export default defineConfig({
   },
   theme: aliyunTheme,
   hash: true,
-  dynamicImport: {
-    loading: '@/pages/_loading',
-  },
   ignoreMomentLocale: true,
   favicon: '/favicon.ico',
   define: {
