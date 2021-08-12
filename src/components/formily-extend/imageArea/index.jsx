@@ -34,17 +34,13 @@ class ImageArea extends PureComponent {
 
   imgmapName = v4()
 
-  componentDidMount() {
-    this.imgRef.current.onload = () => {
-      this.setState({
-        imgWidthZoomRadio: +(this.imgRef.current.width / this.imgRef.current.naturalWidth).toFixed(
-          2,
-        ),
-        imgHeightZoomRadio: +(
-          this.imgRef.current.height / this.imgRef.current.naturalHeight
-        ).toFixed(2),
-      })
-    }
+  onImgLoad = () => {
+    this.setState({
+      imgWidthZoomRadio: +(this.imgRef.current.width / this.imgRef.current.naturalWidth).toFixed(2),
+      imgHeightZoomRadio: +(this.imgRef.current.height / this.imgRef.current.naturalHeight).toFixed(
+        2,
+      ),
+    })
   }
 
   getCursorPosition = e => {
@@ -127,6 +123,7 @@ class ImageArea extends PureComponent {
           ref={this.imgRef}
           src={imgSrc || defaultImg}
           draggable={false}
+          onLoad={this.onImgLoad}
           useMap={`#${this.imgmapName}`}
         />
         {imgWidthZoomRadio &&
