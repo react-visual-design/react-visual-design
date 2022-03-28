@@ -12,7 +12,7 @@ import {
 export const modalSchema = {
   type: 'object',
   properties: {
-    name: {
+    title: {
       type: 'string',
       title: '名称',
       required: true,
@@ -49,13 +49,13 @@ export const createTableColumns = (formTableEl) => {
   return [
     {
       title: '编号',
-      dataIndex: 'id',
+      dataIndex: '_id',
       width: '5%',
       ellipsis: true,
     },
     {
       title: '名称',
-      dataIndex: 'name',
+      dataIndex: 'title',
       width: '15%',
       ellipsis: true,
     },
@@ -79,18 +79,18 @@ export const createTableColumns = (formTableEl) => {
     {
       title: '操作',
       width: '20%',
-      dataIndex: 'id',
+      dataIndex: '_id',
       render: id => (
         <>
           <Button
             type="link"
             size="small"
             onClick={async () => {
-              const values = await geVisualPageById(id)
+              const res = await geVisualPageById(id)
               FormDialog({ schema: modalSchema, title: '编辑模块' })
                 .forOpen((_, next) => {
                   next({
-                    initialValues: values,
+                    initialValues: res.data,
                   })
                 })
                 .forConfirm((payload, next) => {

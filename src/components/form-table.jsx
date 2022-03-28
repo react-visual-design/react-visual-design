@@ -8,7 +8,7 @@ const formTableIns = createForm()
 
 export default class extends React.PureComponent {
   state = {
-    pageSize: 10,
+    pageSize: 20,
     current: 1,
     total: 0,
     loading: false,
@@ -25,11 +25,11 @@ export default class extends React.PureComponent {
     const { pageSize, current, filters } = this.state
     this.setState({ loading: true }, () => {
       fetchTableData({
-        offset: pageSize * (current - 1),
+        skip: pageSize * (current - 1),
         limit: pageSize,
         ...filters,
       }).then(res => {
-        this.setState({ total: res.count, dataSource: res.rows, loading: false })
+        this.setState({ total: res.total, dataSource: res.data, loading: false })
       })
     })
   }

@@ -1079,6 +1079,105 @@
   resolved "https://registry.npm.taobao.org/@bloomberg/record-tuple-polyfill/download/@bloomberg/record-tuple-polyfill-0.0.3.tgz#0b03d18b88a30894caab14abd669b1cbbf47b843"
   integrity sha1-CwPRi4ijCJTKqxSr1mmxy79HuEM=
 
+"@cloudbase/adapter-interface@^0.4.0":
+  version "0.4.1"
+  resolved "https://registry.npmmirror.com/@cloudbase/adapter-interface/-/adapter-interface-0.4.1.tgz#92c37e1a844d0964dd686806c70cb00e6ccabae2"
+  integrity sha512-DJBhBUMg6pYByaw4II7rawbW8nu+x+faZFIxIkWeTRSxboW/jS3NpBQ7kAbycEJVAB2DO77FsnaHKYAMLnvwzw==
+
+"@cloudbase/analytics@^1.1.1-alpha.0":
+  version "1.1.4"
+  resolved "https://registry.npmmirror.com/@cloudbase/analytics/-/analytics-1.1.4.tgz#b8c8df0013ee052c8f53cf7a3546fd27c5368593"
+  integrity sha512-OlvmePWAOnCnxOodmRXY0Mk1RyTeDwRLbbZBqMtHD+xco63YSwbplji3vqbVmBYwVIW7Aho+b/v2flaIaFUeAw==
+  dependencies:
+    "@cloudbase/functions" "^1.3.4"
+    "@cloudbase/types" "^1.1.3-alpha.0"
+
+"@cloudbase/app@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.npmmirror.com/@cloudbase/app/-/app-1.4.1.tgz#28c57ee31e792b3d3efe93022ea55b25cc2f9429"
+  integrity sha512-MS8M0Z/iaSMTSU/N5NIFbK1H4vz8Cbrziag3jhD3iGUtZ4XqkmdskOoOVbQMvy+XF+STts18bv/T+sufjdekMw==
+  dependencies:
+    "@cloudbase/adapter-interface" "^0.4.0"
+    "@cloudbase/types" "^1.1.3-alpha.0"
+    "@cloudbase/utilities" "^1.3.4"
+    cloudbase-adapter-wx_mp "0.2.0"
+
+"@cloudbase/auth@^1.6.1":
+  version "1.6.1"
+  resolved "https://registry.npmmirror.com/@cloudbase/auth/-/auth-1.6.1.tgz#6225909e158ff9dcbc2269da05169199194e8103"
+  integrity sha512-XM2m59vzA4ZfxvHAWcd1T7J5dLc2DHjvmsHo4oSW1T3pyElISVkPSq0SaTy49jQACO+zqt1ZgnGg5CLf8lcGWA==
+  dependencies:
+    "@cloudbase/adapter-interface" "^0.4.0"
+    "@cloudbase/app" "^1.4.1"
+    "@cloudbase/types" "^1.1.3-alpha.0"
+    "@cloudbase/utilities" "^1.3.4"
+    sourcemapped-stacktrace "^1.1.11"
+
+"@cloudbase/database@0.9.18-next":
+  version "0.9.18-next"
+  resolved "https://registry.npmmirror.com/@cloudbase/database/-/database-0.9.18-next.tgz#3c8919512c891783f3acaad7228da2dfcfd951d7"
+  integrity sha512-iXruD1T5scc/h+zNc7o3EdoiEr5l0eLhMH47UsIprp5livB7tdZTDX9U5EBXflYmRIG/1TrK983GsvCbKWT7iw==
+  dependencies:
+    bson "^4.0.2"
+    lodash.clonedeep "4.5.0"
+    lodash.set "4.3.2"
+    lodash.unset "4.5.2"
+
+"@cloudbase/functions@^1.3.4":
+  version "1.3.4"
+  resolved "https://registry.npmmirror.com/@cloudbase/functions/-/functions-1.3.4.tgz#b8ab065dd1eb1dc715318de15dd79e4b28c777f5"
+  integrity sha512-HaZEv+zW0NndiynfLzn3a2mii0hyZ9ANncz+/ZT66f1ZuluXeKFUgNBm3ZWIb1QA1HvSFaj9kDpz5/ftNymp3A==
+  dependencies:
+    "@cloudbase/adapter-interface" "^0.4.0"
+    "@cloudbase/types" "^1.1.3-alpha.0"
+    "@cloudbase/utilities" "^1.3.4"
+
+"@cloudbase/js-sdk@^1.7.2":
+  version "1.7.2"
+  resolved "https://registry.npmmirror.com/@cloudbase/js-sdk/-/js-sdk-1.7.2.tgz#49a69a4531dbedb73cbfc4ebaa2820193b406530"
+  integrity sha512-CF+pd1EKNFfUO2rmj8zL4yocjTKu1GkJMjig5UAcsX+CBXS0yxQEyMvGvwUlorOCBYvlxm7i6hEUBoHrnefHMg==
+  dependencies:
+    "@cloudbase/analytics" "^1.1.1-alpha.0"
+    "@cloudbase/app" "^1.4.1"
+    "@cloudbase/auth" "^1.6.1"
+    "@cloudbase/database" "0.9.18-next"
+    "@cloudbase/functions" "^1.3.4"
+    "@cloudbase/realtime" "^1.1.4-alpha.0"
+    "@cloudbase/storage" "^1.3.4"
+    "@cloudbase/types" "^1.1.3-alpha.0"
+    "@cloudbase/utilities" "^1.3.4"
+
+"@cloudbase/realtime@^1.1.4-alpha.0":
+  version "1.1.4-alpha.0"
+  resolved "https://registry.npmmirror.com/@cloudbase/realtime/-/realtime-1.1.4-alpha.0.tgz#21c538d5df15ee703fb3766ee733a9d7f7676416"
+  integrity sha512-pT9wHPfQDSLNws+C1ki+5liUlHHyK+OLUTvKfq8HB3yyXCJz5R1O1BqVJTjRs7RW0J+mzUKB2tGuIL6M5Kcptw==
+  dependencies:
+    "@cloudbase/types" "^1.1.3-alpha.0"
+
+"@cloudbase/storage@^1.3.4":
+  version "1.3.4"
+  resolved "https://registry.npmmirror.com/@cloudbase/storage/-/storage-1.3.4.tgz#522c283ad9cb4fc727f063c4ef4653a9762f0890"
+  integrity sha512-q+bMNl61gvfyCUPmNGGgXZ2mVKLFqRDJR8CGGt3wBxJwt9eO7yOLjTAb0vdLXNpfdJ/ZovdxiQd8kZEB0+5m0w==
+  dependencies:
+    "@cloudbase/types" "^1.1.3-alpha.0"
+    "@cloudbase/utilities" "^1.3.4"
+
+"@cloudbase/types@^1.1.3-alpha.0":
+  version "1.1.3-alpha.0"
+  resolved "https://registry.npmmirror.com/@cloudbase/types/-/types-1.1.3-alpha.0.tgz#adf754c620f5d58f9758639d0d7f4f6f3e12a330"
+  integrity sha512-BIfILvpEjQmnYdhyHQ4m9QihxlV1kucPVG9AS+z5vZfbn2Jo75xgkex0F2qV4tV7YrQIrzQYtQmJbgG7TwAaSw==
+  dependencies:
+    "@cloudbase/adapter-interface" "^0.4.0"
+
+"@cloudbase/utilities@^1.3.4":
+  version "1.3.4"
+  resolved "https://registry.npmmirror.com/@cloudbase/utilities/-/utilities-1.3.4.tgz#40d828fd9a561c2be49fe12cda4e1f7faf6b95e2"
+  integrity sha512-bw3e9UxE+gHr5XKFJNkPSjftverVed1za+ruYHs+/G+5AzZRtt2R6Kxt/9q+iFwAL2/oGq/zir0r7ora78OFZQ==
+  dependencies:
+    "@cloudbase/adapter-interface" "^0.4.0"
+    "@cloudbase/types" "^1.1.3-alpha.0"
+    crypto-js "3"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.nlark.com/@cnakazawa/watch/download/@cnakazawa/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -3187,7 +3286,7 @@ balanced-match@^2.0.0:
   resolved "https://registry.nlark.com/balanced-match/download/balanced-match-2.0.0.tgz#dc70f920d78db8b858535795867bf48f820633d9"
   integrity sha1-3HD5INeNuLhYU1eVhnv0j4IGM9k=
 
-base64-js@^1.0.2:
+base64-js@^1.0.2, base64-js@^1.3.1:
   version "1.5.1"
   resolved "https://registry.nlark.com/base64-js/download/base64-js-1.5.1.tgz?cache=0&sync_timestamp=1624607950711&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fbase64-js%2Fdownload%2Fbase64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"
   integrity sha1-GxtEAWClv3rUC2UPCVljSBkDkwo=
@@ -3392,6 +3491,13 @@ bser@2.1.1:
   dependencies:
     node-int64 "^0.4.0"
 
+bson@^4.0.2:
+  version "4.6.2"
+  resolved "https://registry.npmmirror.com/bson/-/bson-4.6.2.tgz#3241c79d23d225b86ab6d2bc268b803d8a5fd444"
+  integrity sha512-VeJKHShcu1b/ugl0QiujlVuBepab714X9nNyBdA1kfekuDGecxgpTA2Z6nYbagrWFeiIyzSWIOzju3lhj+RNyQ==
+  dependencies:
+    buffer "^5.6.0"
+
 buffer-from@^1.0.0:
   version "1.1.1"
   resolved "https://registry.nlark.com/buffer-from/download/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
@@ -3410,6 +3516,14 @@ buffer@^4.3.0:
     base64-js "^1.0.2"
     ieee754 "^1.1.4"
     isarray "^1.0.0"
+
+buffer@^5.6.0:
+  version "5.7.1"
+  resolved "https://registry.npmmirror.com/buffer/-/buffer-5.7.1.tgz#ba62e7c13133053582197160851a8f648e99eed0"
+  integrity sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ==
+  dependencies:
+    base64-js "^1.3.1"
+    ieee754 "^1.1.13"
 
 builtin-status-codes@^3.0.0:
   version "3.0.0"
@@ -3688,6 +3802,13 @@ clone-regexp@^2.1.0:
   integrity sha1-fWXgCIXNh5ZAXDWnN+eoa3Qp428=
   dependencies:
     is-regexp "^2.0.0"
+
+cloudbase-adapter-wx_mp@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.npmmirror.com/cloudbase-adapter-wx_mp/-/cloudbase-adapter-wx_mp-0.2.0.tgz#21bd81acec852373ee8b62ab4de57e535eec0059"
+  integrity sha512-GiQGm11cH0K8oKY5tuJZm7DgsM2+WUw5toteMJlKTLMH4ouFrizu5J228I2kXtEWU+u/wE+5tuNGrEdhlfpkZQ==
+  dependencies:
+    "@cloudbase/adapter-interface" "^0.4.0"
 
 co@^4.6.0:
   version "4.6.0"
@@ -4136,6 +4257,11 @@ crypto-browserify@^3.11.0:
     public-encrypt "^4.0.0"
     randombytes "^2.0.0"
     randomfill "^1.0.3"
+
+crypto-js@3:
+  version "3.3.0"
+  resolved "https://registry.npmmirror.com/crypto-js/-/crypto-js-3.3.0.tgz#846dd1cce2f68aacfa156c8578f926a609b7976b"
+  integrity sha512-DIT51nX0dCfKltpRiXV+/TVZq+Qq2NgF4644+K7Ttnla7zEzqc+kjJyiB96BHNyUTBxyjzRcZYpUdZa+QAqi6Q==
 
 css-animation@1.x, css-animation@^1.3.2:
   version "1.6.1"
@@ -6081,7 +6207,7 @@ identity-obj-proxy@3.0.0:
   dependencies:
     harmony-reflect "^1.4.6"
 
-ieee754@^1.1.4:
+ieee754@^1.1.13, ieee754@^1.1.4:
   version "1.2.1"
   resolved "https://registry.nlark.com/ieee754/download/ieee754-1.2.1.tgz#8eb7a10a63fff25d15a57b001586d177d1b0d352"
   integrity sha1-jrehCmP/8l0VpXsAFYbRd9Gw01I=
@@ -7521,7 +7647,7 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
-lodash.clonedeep@^4.5.0:
+lodash.clonedeep@4.5.0, lodash.clonedeep@^4.5.0:
   version "4.5.0"
   resolved "https://registry.nlark.com/lodash.clonedeep/download/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
   integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
@@ -7556,6 +7682,11 @@ lodash.merge@^4.6.2:
   resolved "https://registry.nlark.com/lodash.merge/download/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha1-VYqlO0O2YeGSWgr9+japoQhf5Xo=
 
+lodash.set@4.3.2:
+  version "4.3.2"
+  resolved "https://registry.npmmirror.com/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
+  integrity sha512-4hNPN5jlm/N/HLMCO43v8BXKq9Z7QdAGc/VGrRD61w8gN9g/6jF9A4L1pbUgBLCffi0w9VsXfTOij5x8iTyFvg==
+
 lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.npm.taobao.org/lodash.sortby/download/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
@@ -7570,6 +7701,11 @@ lodash.truncate@^4.4.2:
   version "4.4.2"
   resolved "https://registry.nlark.com/lodash.truncate/download/lodash.truncate-4.4.2.tgz#5a350da0b1113b837ecfffd5812cbe58d6eae193"
   integrity sha1-WjUNoLERO4N+z//VgSy+WNbq4ZM=
+
+lodash.unset@4.5.2:
+  version "4.5.2"
+  resolved "https://registry.npmmirror.com/lodash.unset/-/lodash.unset-4.5.2.tgz#370d1d3e85b72a7e1b0cdf2d272121306f23e4ed"
+  integrity sha512-bwKX88k2JhCV9D1vtE8+naDKlLiGrSmf8zi/Y9ivFHwbmRfA8RxS/aVJ+sIht2XOwqoNr4xUPUkGZpc1sHFEKg==
 
 lodash.zip@^4.2.0:
   version "4.2.0"
@@ -11043,6 +11179,11 @@ source-map-url@^0.4.0:
   resolved "https://registry.nlark.com/source-map-url/download/source-map-url-0.4.1.tgz#0af66605a745a5a2f91cf1bbf8a7afbc283dec56"
   integrity sha1-CvZmBadFpaL5HPG7+KevvCg97FY=
 
+source-map@0.5.6:
+  version "0.5.6"
+  resolved "https://registry.npmmirror.com/source-map/-/source-map-0.5.6.tgz#75ce38f52bf0733c5a7f0c118d81334a2bb5f412"
+  integrity sha512-MjZkVp0NHr5+TPihLcadqnlVoGIoWo4IBHptutGh9wI3ttUYvCG26HkSuDi+K6lsZ25syXJXcctwgyVCt//xqA==
+
 source-map@^0.5.0, source-map@^0.5.6:
   version "0.5.7"
   resolved "https://registry.nlark.com/source-map/download/source-map-0.5.7.tgz?cache=0&sync_timestamp=1624608014898&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fsource-map%2Fdownload%2Fsource-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
@@ -11057,6 +11198,13 @@ source-map@^0.7.3, source-map@~0.7.2:
   version "0.7.3"
   resolved "https://registry.nlark.com/source-map/download/source-map-0.7.3.tgz?cache=0&sync_timestamp=1624608014898&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fsource-map%2Fdownload%2Fsource-map-0.7.3.tgz#5302f8169031735226544092e64981f751750383"
   integrity sha1-UwL4FpAxc1ImVECS5kmB91F1A4M=
+
+sourcemapped-stacktrace@^1.1.11:
+  version "1.1.11"
+  resolved "https://registry.npmmirror.com/sourcemapped-stacktrace/-/sourcemapped-stacktrace-1.1.11.tgz#e2dede7fc148599c52a4f883276e527f8452657d"
+  integrity sha512-O0pcWjJqzQFVsisPlPXuNawJHHg9N9UgpJ/aDmvi9+vnS3x1C0NhwkVFzzZ1VN0Xo+bekyweoqYvBw5ZBKiNnQ==
+  dependencies:
+    source-map "0.5.6"
 
 spdx-correct@^3.0.0:
   version "3.1.1"

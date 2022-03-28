@@ -10,10 +10,13 @@ export default defineConfig({
   },
   theme: aliyunTheme,
   hash: true,
+  history: {
+    type: 'hash'
+  },
   ignoreMomentLocale: true,
   favicon: '/favicon.ico',
   define: {
-    qrcodeUrlPrefix: 'http://react-visual-design.kokiy.xyz',
+    qrcodeUrlPrefix: 'https://koki-5ghulbfed42032ec-1301619189.tcloudbaseapp.com',
     ICON_FONT_URL: '//at.alicdn.com/t/font_2045500_xll0v0fe66n.js', //icon font url},
   },
   extraBabelPlugins: [

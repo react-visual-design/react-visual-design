@@ -9,7 +9,7 @@ import { Button, Select, Modal, notification, Popover } from 'antd'
 import _, { find, map, get } from 'lodash'
 import QRCode from 'qrcode.react'
 import { Drag, CompPropSetting, Devices } from '@/components'
-import { geVisualPageById, updateVisualPageData } from '@/service'
+import { geVisualPageById, updateVisualPage } from '@/service'
 import deviceList from '@/util/device'
 import { arrayIndexForward, arrayIndexBackward } from '@/util/array'
 import styles from './edit.less'
@@ -44,8 +44,8 @@ export default class Index extends PureComponent {
     this.pageId = get(this, 'props.location.query.pageId')
     if (this.pageId) {
       const res = await geVisualPageById(this.pageId)
-      document.title = res.name
-      this.setState({ selectedList: res.data || [] })
+      document.title = res.title
+      this.setState({ selectedList: get(res, 'data.data') || [] })
     }
   }
 
@@ -76,7 +76,7 @@ export default class Index extends PureComponent {
   }
 
   handleSaveBtnClick = async () => {
-    await updateVisualPageData({ id: this.pageId, data: this.state.selectedList })
+    await updateVisualPage({ _id: this.pageId, data: this.state.selectedList })
     notification.success({
       message: '保存成功',
       duration: 2,
@@ -203,7 +203,7 @@ export default class Index extends PureComponent {
           <Devices deviceName={selectedDevice}>
             <Iframe
               attributes={{
-                src: '/visual-page/checked-comp',
+                src: '#/visual-page/checked-comp',
                 width: '100%',
                 height: '100%',
                 frameBorder: 0,

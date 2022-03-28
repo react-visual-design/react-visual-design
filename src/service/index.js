@@ -1,19 +1,18 @@
 import request from '../util/request'
 
-const { post, get, put, delete: Delete } = request
 
-const visualPagePaging = params => get('/bff/visual-page', { params })
-const geVisualPageById = id => get(`/bff/visual-page/${id}`)
-const addVisualPage = data => post(`/bff/visual-page`, { data })
-const updateVisualPage = data => put(`/bff/visual-page/${data.id}`, { data })
-const updateVisualPageData = data => put(`/bff/update-visual-page/${data.id}`, { data })
-const deleteVisualPage = id => Delete(`/bff/visual-page/${id}`)
+const prefixApi = 'https://koki-5ghulbfed42032ec-1301619189.ap-shanghai.service.tcloudbase.com/api/v1.0/'
+const { post, get, delete: Delete, patch } = request
+const visualPagePaging = () => get(`${prefixApi}page`)
+const geVisualPageById = id => get(`${prefixApi}page/${id}`)
+const addVisualPage = data => post(`${prefixApi}page`, { data: { data: [data] } })
+const updateVisualPage = ({ _id, ...rest }) => patch(`${prefixApi}page/${_id}`, { data: { data: rest } })
+const deleteVisualPage = id => Delete(`${prefixApi}page/${id}`)
 
 export {
   visualPagePaging,
   geVisualPageById,
   addVisualPage,
   updateVisualPage,
-  updateVisualPageData,
   deleteVisualPage,
 }

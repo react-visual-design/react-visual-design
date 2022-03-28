@@ -21,7 +21,7 @@ export default () => {
   return (
     <div className={styles.page}>
       <FormTable
-        rowKey="id"
+        rowKey="_id"
         ref={formTableEl}
         columns={createTableColumns(formTableEl)}
         fetchTableData={visualPagePaging}
