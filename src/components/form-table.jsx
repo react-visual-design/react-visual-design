@@ -27,7 +27,7 @@ export default class extends React.PureComponent {
       fetchTableData({
         skip: pageSize * (current - 1),
         limit: pageSize,
-        ...filters,
+        query: { ...filters },
       }).then(res => {
         this.setState({ total: res.total, dataSource: res.data, loading: false })
       })

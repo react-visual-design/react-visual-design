@@ -143,7 +143,7 @@ export const createTableColumns = (formTableEl) => {
 export const tableSearchSchema = {
   type: 'object',
   properties: {
-    name: {
+    title: {
       type: 'string',
       title: '名称',
       'x-decorator': 'FormItem',

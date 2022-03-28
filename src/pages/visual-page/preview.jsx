@@ -14,8 +14,8 @@ export default class Index extends PureComponent {
     this.pageId = get(this, 'props.location.query.pageId')
     if (this.pageId) {
       const res = await geVisualPageById(this.pageId)
-      document.title = res.name
-      this.setState({ data: res.data || [] })
+      document.title = res.data.title
+      this.setState({ data: get(res, 'data.data', []) })
     }
   }
 
