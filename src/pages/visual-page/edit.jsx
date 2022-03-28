@@ -44,7 +44,7 @@ export default class Index extends PureComponent {
     this.pageId = get(this, 'props.location.query.pageId')
     if (this.pageId) {
       const res = await geVisualPageById(this.pageId)
-      document.title = res.title
+      document.title = res.data.title
       this.setState({ selectedList: get(res, 'data.data') || [] })
     }
   }
@@ -130,9 +130,11 @@ export default class Index extends PureComponent {
 
   onReceiveMessage = e => {
     try {
-      const data = JSON.parse(e.data)
-      if (_.isFunction(this[data.func])) {
-        this[data.func](data.params)
+      if (e.data) {
+        const data = JSON.parse(e.data)
+        if (_.isFunction(this[data.func])) {
+          this[data.func](data.params)
+        }
       }
     } catch (err) {
       console.error(err)
